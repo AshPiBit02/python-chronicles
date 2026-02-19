@@ -56,19 +56,37 @@
 # numbers[2:5]=[99]
 # print(numbers)
 
-#Challenge 3 (list comprehension)
-raw_data=[x for x in range(1,11)]
-print(raw_data)
-# 1. Generate a new list called squares containing the squres of every number in raw_data
-square_list=[x**2 for x in raw_data]
-print(square_list)
-# 2. Generate a list called evens that contains only the even numbers for raw_data
-evens=[x for x in raw_data[1::2]]
-print(evens)
-# 3 . Generate a list that contains the string "Even" if the number is even and 
-# "Odd " if it is odd(using a ternary operator inside the comprehension)
-lables=["Even" if x%2==0 else "Odd" for x in raw_data]
-print(lables)
+# #Challenge 3 (list comprehension)
+# raw_data=[x for x in range(1,11)]
+# print(raw_data)
+# # 1. Generate a new list called squares containing the squres of every number in raw_data
+# square_list=[x**2 for x in raw_data]
+# print(square_list)
+# # 2. Generate a list called evens that contains only the even numbers for raw_data
+# evens=[x for x in raw_data[1::2]]
+# print(evens)
+# # 3 . Generate a list that contains the string "Even" if the number is even and 
+# # "Odd " if it is odd(using a ternary operator inside the comprehension)
+# lables=["Even" if x%2==0 else "Odd" for x in raw_data]
+# print(lables)
+
+#Challenge 4 (Multi-dimensional lists(matrices))
+matrix=[[1,2,3],[4,5,6],[7,8,9]]
+# 1. Access the number 6 from the matrix.
+num=matrix[1][2]
+print(num)
+# 2. Flatten this 2D list into a 1D list using a nested list comprehension
+matrix_1d=[element for row in matrix for element in row] #[result outer_loop inner_loop]
+print(matrix_1d)
+# or 
+matrix_1d=[]
+for row in matrix:
+    for element in row:
+        matrix_1d.append(element)
+print(matrix_1d)
+# 3. Change the middle element to 0
+matrix[1][1]=0
+print(matrix)
 
 
 
