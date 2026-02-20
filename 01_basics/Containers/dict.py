@@ -51,7 +51,24 @@ val=my_dict.get("phone","not found!") # if we try to access a key that is no pre
                                       # but we use my_dict["phone"] it will generate error as phone is not present so, .get() method is safe
 print(val)
 
+# Challenge 2 (Iteration)
+# 1. Loop through the dictionary and print only the keys
+print("Keys")
+for k,v in my_dict.items():
+    print(k)
+# 2. Loop through and print only the values.
+print("Values")
+for k,v in my_dict.items():
+    print(v)
+# 3. Loop through and print both key and values at the same time
+print("Keys : Values")
+for k,v in my_dict.items():
+    print(f"{k} : {v}")
 
+# Challenge 3 (Dictionary Comprehension)
+number=[1,2,3,4,5]
+# Use a comprehension to create a dictionary where the key is the number and the values is its squares
+square_dict={x:x**2 for x in number} 
+print(square_dict)
 
-  
 
