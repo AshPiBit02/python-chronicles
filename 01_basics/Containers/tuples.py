@@ -43,15 +43,47 @@
 # print(t.count(6)) # .count(x) to count x in tuple
 # print(t.index(5)) # returns the first index of x
 
-# 6. Built-in Functions applicable to Tuples
-# len(t) - length of tuple
-# max(t) - maximum element
-# min(t) - minimum element
-# sum(t) - sum of numeric elements
-# sorted(t) - returns a sorted list
-# tuple(iterable) - converts iterable to tuple
-# any(t) - True if any element is truthy
-# all(t) - True if all elements are truthy
+# # 6. Built-in Functions applicable to Tuples
+# # len(t) - length of tuple
+# # max(t) - maximum element
+# # min(t) - minimum element
+# # sum(t) - sum of numeric elements
+# # sorted(t) - returns a sorted list
+# # tuple(iterable) - converts iterable to tuple
+# # any(t) - True if any element is truthy
+# # all(t) - True if all elements are truthy
+
+# # Topic-wise questions and solutions
+
+# # 1. Basic
+# # create an empty tuple and a tuple with one element
+# tup1=() 
+# tup2=(1,)
+# # Pack and unpack a tuple with 4 values.
+# tup1=10,20,30 # packing
+# a,b,c=tup1 # unpacking
+# print(tup1)
+# # convert a list [10,20,30] into a tuple
+# new_tup=tuple([10,20,30])
+# print(type(new_tup))
+
+# # 2. Indexing & Slicing
+# t=(10,20,30,40,50)
+# # Access first element
+# print(t[0])
+# # Access last element
+# print(t[-1])
+# # Access element from index 1 to 3
+# print(t[1:4])
+# # Reverse the tuple using slicing
+# print(t[::-1])
+
+# 3. Tuple Opeartions
+
+
+
+
+
 
 
 
