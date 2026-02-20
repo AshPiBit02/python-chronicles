@@ -26,24 +26,33 @@
 # difference = set_a-set_b
 # print(difference)
 
-# Challenge 1 (unique & add/remove)
-my_list=[1,2,2,3,4,4,4,5]
-# 1. Convert my_list into a set called my_set to automatically remove duplicates
-my_set = set(my_list)
-print(my_set)
-# 2. Add the number 6 to the set
-my_set.add(6)
-print(my_set)
-# 3. Try to add number 3 again.
-my_set.add(3) # will be internally rejected since 3 is already present
-print(my_set)
-# 4. Remove the number 2 from the set.
-my_set.remove(3) # discard() is safe than remove()
-print(my_set)
-# 5. Use a method to remove an element that won't throw an error if the element doesn't exist
-my_set.discard(10)
-print(my_set)
+# # Challenge 1 (unique & add/remove)
+# my_list=[1,2,2,3,4,4,4,5]
+# # 1. Convert my_list into a set called my_set to automatically remove duplicates
+# my_set = set(my_list)
+# print(my_set)
+# # 2. Add the number 6 to the set
+# my_set.add(6)
+# print(my_set)
+# # 3. Try to add number 3 again.
+# my_set.add(3) # will be internally rejected since 3 is already present
+# print(my_set)
+# # 4. Remove the number 2 from the set.
+# my_set.remove(3) # discards() is safe than remove()
+# print(my_set)
+# # 5. Use a method to remove an element that won't throw an error if the element doesn't exist
+# my_set.discard(10)
+# print(my_set)
 
+# Challenge 2 (membership and Performance)
+large_set={i for i in range(1000)}
+# 1. Check if 500 is in the set.
+is_present=500 in large_set
+print(f"Present status: {is_present}") 
+# 2. Why is 500 in large_set faster than 500 in large_list?
+  # set uses uses a hash table(O(1)) where as but list uses vector logic and does linear search making the search O(n)
+
+ 
 
 
 
