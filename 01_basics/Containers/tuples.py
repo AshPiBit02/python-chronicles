@@ -41,7 +41,7 @@
 # # 5. Tuple Methods
 # t=(1,2,2,4,5,6,4,6)
 # print(t.count(6)) # .count(x) to count x in tuple
-# print(t.index(5)) # returns the first index of x
+# print(t.index(5)) # returns the first occurence index of x
 
 # # 6. Built-in Functions applicable to Tuples
 # # len(t) - length of tuple
@@ -78,7 +78,41 @@
 # # Reverse the tuple using slicing
 # print(t[::-1])
 
-# 3. Tuple Opeartions
+# # 3. Tuple Opeartions
+# # Concatenate(1,2,3) and(4,5,6)
+# t1=(1,2,3)
+# t2=(4,5,6)
+# print(t1+t2)
+# # Repeat(7,8) three times
+# t3=(7,8)
+# print(t3*3)
+# # Check if 20 exists in (10,20,30)
+# print(20 in (10,20,30))
+
+# # 4. Nested Tuples
+# t=(1,(2,3),(4,5))
+# # Access the element 3
+# print(t[1][1])
+# # Access the tuple (4,5)
+# print(t[2])
+
+# # 5. Tuple Methods
+# # Use .count() and .index() on t=(1,2,2,3,4,2)
+# t=(1,2,2,3,4,2)
+# print(t.count(2))
+# print(t.index(4))
+# # Find the index of first occurence of 2.
+# print(t.index(2))
+
+
+
+
+
+
+
+
+
+
 
 
 
