@@ -19,3 +19,36 @@
 # time.pref_counter()
 # time.process_time()
 
+# Challenge-Wise practice Questions
+
+# Ch 1 (stopwatch)
+   # start a timer when user presses Enter.
+   # stop when user presses Enter again.
+   # print elapsed time.
+# import time
+# input("Press Enter to start the stopwatch....")
+# start_time=time.time() # record start time
+# input("Press Enter to stop the stopwatch....")
+# end_time=time.time()
+# elapses=end_time-start_time
+# print(f"Elpased time: {elapses:.2f} seconds") 
+
+# Ch 2 (countdown timer)
+    # Input: number of seconds 
+    # print countdown second by second
+    # End with "Time's up!"
+import time
+sec=int(input("Enter countdown time in  seconds: "))
+print("Countdown starts now!")
+# for i in range(sec,0,-1):
+#     print(i)
+#     time.sleep(1)
+while sec>0:
+    print(sec)
+    time.sleep(1)
+    sec-=1
+print("Time's up!")
+
+
+
+
