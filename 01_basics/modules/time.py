@@ -74,10 +74,17 @@
 #     print(current_time,end="\r") # overwrite the same line
 #     tm.sleep(1)
 
-
-
-
-
-
+# Ch 5 (Loading Simulation)
+   # print "Loading.","Loading..","Loading..." with 1- second delay.
+   # repeat 3 times.
+import time as tm
+print("Loading Simulations:")
+for i in range(3):
+    for dots in range(1,4):
+        text="Loading"+"."*dots
+        print(text.ljust(12),end='\r',flush=True) #text.ljust(12)-ensures that string is always padded to at least 12 characters, so shorter version overwrite longer ones
+                                                  #flush=True - forces immediate printing(important for smooth animation)
+        tm.sleep(1)
+print("Done!")
 
 
