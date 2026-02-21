@@ -133,26 +133,3 @@ for student in students:
 # Sort students by age
 sorted_students=sorted(students,key=lambda x:x[1]) # here sorted() is a function and lambda is a general tool(just a shortcut for defining functions inline)
 print(sorted_students)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
