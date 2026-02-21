@@ -15,9 +15,9 @@ Welcome to my personal archive of Python mastery. This repository serves as a st
 I have organized this chronicle into logical "Chapters" to track my evolution as a developer:
 
 ### 📜 Chapter 1: The Foundations
-- [ ] *Syntax & Types:* Strings, Integers, Floats, Booleans.
-- [ ] *Control Flow:* Loops (for, while) and Conditional Logic.
-- [ ] *Data Structures:* Lists, Dictionaries, Sets, and Tuples.
+- [x] *Syntax & Types:* Strings, Integers, Floats, Booleans.
+- [x] *Control Flow:* Loops (for, while) and Conditional Logic.
+- [x] *Data Structures:* Lists, Dictionaries, Sets, and Tuples.
 - [ ] *Functions:* Arguments, Scope, and Lambda expressions.
 
 ### 🧪 Chapter 2: Pythonic Mastery
