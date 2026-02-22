@@ -60,9 +60,12 @@
 # 58. setattr() - set object attribute 
 # 59. slice() - create slice object
 # 60. sorted() - sort iterable
-# 61. staticmethod() - define static method
-# 62. str() - convert to string 
-# 63. sum() - sum of iterable
-# 64. super() - call parent class method
+# 61. startswith() - checks if the string starts proved character or sequence of character
+# 62. staticmethod() - define static method
+# 63. str() - convert to string 
+# 64. sum() - sum of iterable
+# 65. super() - call parent class method
+
+
 
 
