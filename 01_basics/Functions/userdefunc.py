@@ -14,7 +14,7 @@ greet_user()
 
 # Write a function add_number(a,b) that retuns that sum of two numbers
 def add_number(a,b):
-    return a+b;
+    return a+b
 print(add_number(8,2))
 # Write a function is_even(n) that returns True if the number is even, otherwise False
 def is_even(n):
