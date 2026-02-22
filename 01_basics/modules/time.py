@@ -13,7 +13,7 @@
 # time.localtime() local time as struct_time
 # time.gmtiime() UTC time as struct_time
 # time.ctime() human-readable current time
-# time.strftime("%Y-%m-%d $H:%M:%S",time.localtime())
+# time.strftime("%Y-%m-%d %H:%M:%S",time.localtime())
 # time.strptime("2026-02-21 09:30:00","%Y-%m-%d $H:%M:%S")
 # both belows for high-precision times for benchmarking
 # time.pref_counter()
@@ -74,17 +74,41 @@
 #     print(current_time,end="\r") # overwrite the same line
 #     tm.sleep(1)
 
-# Ch 5 (Loading Simulation)
-   # print "Loading.","Loading..","Loading..." with 1- second delay.
-   # repeat 3 times.
-import time as tm
-print("Loading Simulations:")
-for i in range(3):
-    for dots in range(1,4):
-        text="Loading"+"."*dots
-        print(text.ljust(12),end='\r',flush=True) #text.ljust(12)-ensures that string is always padded to at least 12 characters, so shorter version overwrite longer ones
-                                                  #flush=True - forces immediate printing(important for smooth animation)
-        tm.sleep(1)
-print("Done!")
+# # Ch 5 (Loading Simulation)
+#    # print "Loading.","Loading..","Loading..." with 1- second delay.
+#    # repeat 3 times.
+# import time as tm
+# print("Loading Simulations:")
+# for i in range(3):
+#     for dots in range(1,4):
+#         text="Loading"+"."*dots
+#         print(text.ljust(12),end='\r',flush=True) #text.ljust(12)-ensures that string is always padded to at least 12 characters, so shorter version overwrite longer ones
+#                                                   #flush=True - forces immediate printing(important for smooth animation)
+#         tm.sleep(1)
+# print("Done!")
+
+# # Ch 6 (Local vs UTC)
+# import time as tm
+# # print local time 
+# local_time=tm.strftime("%Y-%m-%d %H:%M:%S",tm.localtime())
+# # print UTC time
+# utc_time=tm.strftime("%Y-%m-%d %H:%M:%S",tm.gmtime())
+# print(f"Local time : {local_time} ")
+# print(f"UTC time : {utc_time} ")
+
+# # Ch 7 (Alarm Clock)
+# # input:time
+# # Continuously check current time.
+# # When it matches, print "Alarm rigining."
+# import time
+# alarm_time=input("Enter alarm time(HH:MM): ")
+# print(f"Alarm set for {alarm_time}....")
+# while True:
+#     current_time=time.strftime("%H:%M",time.localtime())
+#     if(current_time==alarm_time):
+#         print("Alarm ringing...")
+#         break
+#     time.sleep(30) # sleep to avoid constant time checking (optional)
+
 
 
