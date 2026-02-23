@@ -70,3 +70,27 @@ print(re.split(r"[;, ]",l_fruit))
 info="I live in Nepal and love coding"
 print(re.search(r"Nepal",info))
 
+
+# Some more functions
+
+# re.finditer(pattern,string) - returns an iterator of match objects(with indexed)
+for m in re.finditer(r"[A-Z]","AashishChaudhary"):
+    print(m.group(),m.start(),m.end())
+
+# re.subn(pattern,repl,string) - same as sub, but also returns the number of replacements.
+print(re.subn(r"\d+","X","Room 101, Floor 202"))
+
+# re.compile(pattern) - compiles a regex pattern into a reusable object.
+pattern=re.compile(r"\d+")
+print(pattern.findall("123, 456"))
+
+# re.fullmatch(pattern,string) - matches the entire string against the pattern.
+print(re.fullmatch(r"\d+","123"))
+print(re.fullmatch(r"\d+","123x"))
+
+# Match Object Methods - when use match,search, or finditer, you get a match. Useful methods are:
+    # .group() - matched text
+    # .start() - starting index
+    # .end() - ending index
+    # .span() - tuple(start,end)
+
