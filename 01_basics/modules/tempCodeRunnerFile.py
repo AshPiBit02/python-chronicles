@@ -1,5 +1,5 @@
-print("Digital Clock(press Ctrl+C to stop)") # ctrl+c is universal way to stop a python program(sends a KeyboardInterrupt)
-# while True:
-#     current_time=tm.strftime("%H:%M:%S",tm.localtime())
-#     print(current_time,end="\r") # overwrite the same line
-#     tm.sleep(1)
+ creates tuple-like objects with named fields.
+from collections import namedtuple
+point=namedtuple("Point",["x","y"])
+p=point(10,20)
+print(p.x,p.y)
