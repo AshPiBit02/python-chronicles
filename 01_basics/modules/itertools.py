@@ -38,3 +38,23 @@ print(list(dropwhile(lambda x:x<5,[1,2,3,12,6,5])))
    # takewhile(predicate,iterable) - take items while pedicate is True
 from itertools import takewhile
 print(list(takewhile(lambda x:x%2==0,[12,24,20,11,20,24])))
+   # filterfalse(predicate,iterable) - opposite fo filter
+from itertools import filterfalse
+print(list(filterfalse(lambda x:x>0,[1,2,3-2,-3,0])))
+print(list(filterfalse(lambda x:x%2==0,range(10))))
+   
+# 3. Combinatoric Generators
+    # product(iterable,repeat=n) - createsian product
+from itertools import product
+print(list(product([1,2],['a','c'])))
+    # permutations(iterable,r=None) - all possible orderings
+from itertools import permutations
+print(list(permutations("ABC",2))) # permutations of two characters
+print(list(permutations("ABC"))) # permutations of all characters
+    # combinations(iterable,r) - unique subsets of length r.
+from itertools import combinations
+print(list(combinations("ABCD",2)))
+    # combinations_with_replacement(iterable,r) - allows repeated elements.
+from itertools import combinations_with_replacement
+print(list(combinations_with_replacement("ABCD",2)))
+
