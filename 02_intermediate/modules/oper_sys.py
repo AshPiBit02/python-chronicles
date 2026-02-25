@@ -24,3 +24,12 @@
    # Build scripts: create artifact folders, set permissions.
    # CI and testing: create isolated temp dirs and set env vars.
    # Light process control: run commands and set enviroment fro child precesses.
+
+# Operating and Functioning
+
+# Path operations and checks
+import os
+cwd=os.getcwd()
+p=os.path.join(cwd,"data","input.csv")
+if os.path.exists(p) and os.path.isfile(p):
+    print("Ready: ",p)
