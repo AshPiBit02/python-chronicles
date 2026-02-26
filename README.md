@@ -18,7 +18,7 @@ I have organized this chronicle into logical "Chapters" to track my evolution as
 - [x] *Syntax & Types:* Strings, Integers, Floats, Booleans.
 - [x] *Control Flow:* Loops (for, while) and Conditional Logic.
 - [x] *Data Structures:* Lists, Dictionaries, Sets, and Tuples.
-- [ ] *Functions:* Arguments, Scope, and Lambda expressions.
+- [x] *Functions:* Arguments, Scope, and Lambda expressions.
 
 ### 🧪 Chapter 2: Pythonic Mastery
 - [ ] *List Comprehensions:* Writing concise, readable code.
