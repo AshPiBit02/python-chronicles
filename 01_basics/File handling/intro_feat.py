@@ -27,3 +27,15 @@
     # read/write images,audio,or raw data with "rb"/"wb".
 # 7. Atomic operations
     # write to temp file then os.replace() or Path.replace() -> avoids corruption 
+
+# Implentations (examples)
+
+# Read line by line(large file)
+with open("big.log","r",encoding="utf-8") as f: # encodeing="utf-8" tells python how to interpret text: UTF-8 is the universal standard
+    for line in f:
+        print(line.strip()) # .strip() removes whitespace/newlines from start and end of a string
+
+# Append logs
+from datetime import datetime
+with open("app.log","a",encoding="utf-8") as f:
+    f.write(f"{datetime.now().isoformat()} - started\n") 
