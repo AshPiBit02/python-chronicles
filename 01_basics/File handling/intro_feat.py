@@ -105,3 +105,8 @@ print("Number of lines: ",count)
 
 #Phase 2
 # 1. Read a file line by line and print only lines longer than 20 characters.
+with open("sample.txt","r",encoding="utf-8") as file:
+    for line in file:
+        clean_line=line.strip() # remove leading/tailing whitespace and new lines
+        if len(clean_line)>20:
+            print(clean_line)
