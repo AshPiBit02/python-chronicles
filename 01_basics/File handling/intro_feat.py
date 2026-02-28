@@ -92,3 +92,16 @@ with open("test.txt","r") as file:
 # 3. Append a new line to the same file without overwritting.
 with open("test.txt","a") as file:
     file.write("\nWorld, Hello")
+# 4. Count how many lines are in the file.
+with open("test.txt","r") as f:
+    lines=f.readlines() # reads all lines into a list
+    print("Number of lines: ",len(lines))
+  # Alternatively
+count=0
+with open("test.txt","r") as f:
+    for line in f:
+        count+=1
+print("Number of lines: ",count)
+
+#Phase 2
+# 1. Read a file line by line and print only lines longer than 20 characters.
