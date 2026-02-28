@@ -39,3 +39,34 @@ with open("big.log","r",encoding="utf-8") as f: # encodeing="utf-8" tells python
 from datetime import datetime
 with open("app.log","a",encoding="utf-8") as f:
     f.write(f"{datetime.now().isoformat()} - started\n") 
+
+# Binary read/write
+# Read image
+with open("test.jpg","rb") as f:
+    data=f.read()
+# Write binary data
+with open("copy.jpg","wb") as f:
+    f.write(data)
+
+# Random access
+with open("data.txt","r+") as f:
+    f.seek(5) # move to 5th byte
+    print(f.read(10)) # read next 10 chars']
+
+# Exception handling in file operation
+try:
+    with open("missing.txt","r") as f:
+        print(f.read())
+except FileNotFoundError:
+    print("File not found. Please check the path.")
+
+# Working with JSON Files
+import json
+data={"name":"Aashish","age":"21"}
+with open("data.json","w") as f:
+    json.dump(data,f)
+with open("data.json","r") as f:
+    loaded=json.load(f)
+    print(loaded)
+
+
