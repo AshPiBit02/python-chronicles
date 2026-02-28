@@ -69,4 +69,26 @@ with open("data.json","r") as f:
     loaded=json.load(f)
     print(loaded)
 
+# # Using os and pathlib for file management
+# import os 
+# from pathlib import Path
+# # check if file exists
+# if Path("data.txt").exists():
+#     print("File exits")
+# # Rename file 
+# os.rename("old.txt","new.txt")
+# # Delete file
+# os.remove("unwanted.txt")
 
+# Challenges
+
+#Phase 1
+# 1. Create a text file and write "Hello, World!" into it.
+with open("test.txt","w") as file:
+    file.write("Hello, World!")
+# 2. Read the file back and print its contents.
+with open("test.txt","r") as file:
+    print(file.read())
+# 3. Append a new line to the same file without overwritting.
+with open("test.txt","a") as file:
+    file.write("\nWorld, Hello")
