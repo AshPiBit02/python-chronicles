@@ -111,10 +111,19 @@ print("Number of lines: ",count)
 #         if len(clean_line)>20:
 #             print(clean_line)
 # 2. Write a program that copies the contents of one file into another.
-with open("origin.txt","w") as f:
+with open("origin.txt","w",encoding="utf-8") as f:
     f.write("These are the contents from origin file.")
-with open("origin.txt","r") as f:
+with open("origin.txt","r",encoding="utf-8") as f:
     contents=f.read()
 with open("alternate.txt","w") as f:
     f.write(contents)
+# 3. Create a log file that records the current timestamp each time the program runs.
+from datetime import datetime as dt
+with open("records.log","a",encoding="utf-8") as f:
+    f.write(f"{dt.now().isoformat()} - started\n")
+# 4. Use seek() to jump to a specific byte in a file and read the next 15 characters.
+with open("test.txt","r+") as f:
+    f.seek(2)
+    print(f.read(15))
+
 
