@@ -132,3 +132,7 @@ with open("auth.webp","rb") as file:
     data=file.read()
 with open("dummy.png","wb") as file:
     file.write(data)
+with open("test_file.pdf","rb") as file:
+    data=file.read()
+with open("dummy.pdf","wb") as file:
+    file.write(data)
