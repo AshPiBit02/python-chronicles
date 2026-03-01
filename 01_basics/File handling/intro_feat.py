@@ -105,8 +105,16 @@ print("Number of lines: ",count)
 
 #Phase 2
 # 1. Read a file line by line and print only lines longer than 20 characters.
-with open("sample.txt","r",encoding="utf-8") as file:
-    for line in file:
-        clean_line=line.strip() # remove leading/tailing whitespace and new lines
-        if len(clean_line)>20:
-            print(clean_line)
+# with open("sample.txt","r",encoding="utf-8") as file:
+#     for line in file:
+#         clean_line=line.strip() # remove leading/tailing whitespace and new lines
+#         if len(clean_line)>20:
+#             print(clean_line)
+# 2. Write a program that copies the contents of one file into another.
+with open("origin.txt","w") as f:
+    f.write("These are the contents from origin file.")
+with open("origin.txt","r") as f:
+    contents=f.read()
+with open("alternate.txt","w") as f:
+    f.write(contents)
+
