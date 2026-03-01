@@ -1,0 +1,5 @@
+Python is powerful and easy to learn.
+File handling in Python is very useful.
+Python can read, write, and process files.
+Learning Python file handling makes you a better programmer.
+Python is fun, and Python is everywhere!

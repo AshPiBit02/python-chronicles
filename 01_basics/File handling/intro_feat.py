@@ -136,3 +136,34 @@ with open("test_file.pdf","rb") as file:
     data=file.read()
 with open("dummy.pdf","wb") as file:
     file.write(data)
+# 2. Build a word frequency counter that reads a text file and output the top 10 most common words.
+from collections import Counter 
+   # open and read the file
+with open("sample_text.txt","r",encoding="utf-8") as file:
+    text=file.read().lower() # convert to lowercase for uniformity
+   # split text into words
+words=text.split()
+   # count word frequencies
+word_counts=Counter(words)
+   # get top 10 most common words
+top_10=word_counts.most_common(10) # returns the 10 most frequent words.
+print("Top 10 most common words: ")
+   # Display results
+for word,count in top_10:
+    print(f"{word}:{count}")
+# 3. Handle exceptions gracefully when a file doesn't exist or is locked.
+try:
+    with open("ispresent.txt","r") as f:
+        f.read()
+except FileNotFoundError:
+    print("File doesn't exists!")
+# 4. Create a program that merges multiple text files into one.
+   # List of files to merge
+files=["file1.txt","file2.txt","file3.txt"]
+output_file="merged.txt"
+with open(output_file,"w",encoding="utf-8") as res_file:
+    for fname in files:
+        with open(fname,"r",encoding="utf-8") as infile:
+        # read content and write to merged file
+         res_file.write(infile.read())
+         res_file.write("\n") # add a newline between files
