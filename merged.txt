@@ -1,0 +1,6 @@
+This is the first file.
+It has some text.
+This is the second file.
+It also has some text.
+This is the third file.
+It contains more text.

@@ -166,4 +166,5 @@ with open(output_file,"w",encoding="utf-8") as res_file:
         with open(fname,"r",encoding="utf-8") as infile:
         # read content and write to merged file
          res_file.write(infile.read())
+         
          res_file.write("\n") # add a newline between files
