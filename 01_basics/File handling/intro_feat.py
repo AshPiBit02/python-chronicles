@@ -179,3 +179,12 @@ with open("user_data.json","r",encoding="utf-8") as user_file:
     loaded_data=json.load(user_file)
 for k,v in loaded_data.items():
     print(f"{k}:{v}")
+
+# Process a CSV file print all rows where a certain column matches a condition
+import csv
+with open("learner.csv","r") as f:
+    learner=csv.DictReader(f) # reads rows as dictinories
+    print("Students with Grade A:")
+    for row in learner:
+        if row["Grade"]=="A":
+            print(row["Name"],"|",row["Age"],"|",row["Grade"])
