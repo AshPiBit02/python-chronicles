@@ -188,3 +188,16 @@ with open("learner.csv","r") as f:
     for row in learner:
         if row["Grade"]=="A":
             print(row["Name"],"|",row["Age"],"|",row["Grade"])
+
+# Build a simple backup script that copies all .txt files from one folder to another.
+import os
+import shutil
+source_folder="source_files"
+backup_folder="backup_files"
+os.makedirs(backup_folder,exist_ok=True) # create backup folder if it doesn't exist
+for filename in os.listdir(source_folder):
+    if filename.endswith(".txt"):
+     src_path=os.path.join(source_folder,filename)
+     dest_path=os.path.join(backup_folder,filename)
+     shutil.copy(src_path,dest_path) # copy file
+     print(f"Copied:{filename}")
