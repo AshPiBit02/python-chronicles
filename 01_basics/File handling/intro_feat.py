@@ -201,3 +201,11 @@ for filename in os.listdir(source_folder):
      dest_path=os.path.join(backup_folder,filename)
      shutil.copy(src_path,dest_path) # copy file
      print(f"Copied:{filename}")
+
+# Create a log analyzer that reads app.log and counts how many times "ERROR" appears.
+error_count=0
+with open("appp.log","r",encoding="utf-8") as f:
+    for line in f:
+        if "ERROR" in line:
+            error_count+=1
+print(f"Total ERROR entries: {error_count}")

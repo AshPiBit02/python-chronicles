@@ -1,0 +1,6 @@
+2026-03-02T21:00:00 - INFO - Application started
+2026-03-02T21:05:12 - ERROR - Failed to connect to database
+2026-03-02T21:06:45 - WARNING - Low memory
+2026-03-02T21:07:10 - ERROR - User authentication failed
+2026-03-02T21:08:30 - INFO - Application running
+2026-03-02T21:09:55 - ERROR - Timeout while fetching data
