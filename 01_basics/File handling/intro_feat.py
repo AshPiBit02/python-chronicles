@@ -209,3 +209,16 @@ with open("appp.log","r",encoding="utf-8") as f:
         if "ERROR" in line:
             error_count+=1
 print(f"Total ERROR entries: {error_count}")
+
+# Phase 5
+
+# Build a mini file explorer using os and pathlib(list files,check sizes, delete unwanted ones).
+
+import zipfile
+# File to compress
+file_to_compress="notes.txt"
+zip_filename="backup.zip"
+# Create a zip archive and add the file
+with zipfile.ZipFile(zip_filename,"w",zipfile.ZIP_DEFLATED) as zipf: # zipfile.ZipFile(....,"w") creates a new zip archive in write mode and zipfile.ZIP_DEFLATED applies compression
+    zipf.write(file_to_compress) # zipf.write(file_to_compress) adds the file into the archive
+    print(f"{file_to_compress} has been compressed into {zip_filename}") 
