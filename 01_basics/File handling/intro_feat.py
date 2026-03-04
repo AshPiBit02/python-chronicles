@@ -222,3 +222,4 @@ zip_filename="backup.zip"
 with zipfile.ZipFile(zip_filename,"w",zipfile.ZIP_DEFLATED) as zipf: # zipfile.ZipFile(....,"w") creates a new zip archive in write mode and zipfile.ZIP_DEFLATED applies compression
     zipf.write(file_to_compress) # zipf.write(file_to_compress) adds the file into the archive
     print(f"{file_to_compress} has been compressed into {zip_filename}") 
+# holi holi happy holi
