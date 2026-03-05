@@ -61,3 +61,15 @@ if os.path.exists(p) and os.path.isfile(p):
 # Print your current working directory
 cwd=os.getcwd()
 print("Current working directory: ",cwd)
+# Create a path to a file called data.txt inside a folder project.
+path=os.path.join(cwd,"Project","data.txt") # builds a path using the correct separator
+print(path)
+# Check if previous file exists.
+if os.path.exists(path):
+    if os.path.isfile(path):
+        print("File exists:",path)
+    else:
+        print("Path exists but file doesn't "  , path)
+else:
+    print("File does not exists: ",path)
+    
