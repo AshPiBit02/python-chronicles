@@ -53,3 +53,11 @@ cwd=os.getcwd()
 p=os.path.join(cwd,"data","input.csv")
 if os.path.exists(p) and os.path.isfile(p):
     print("Ready: ",p)
+
+# Challenges
+
+# Level Beginner
+
+# Print your current working directory
+cwd=os.getcwd()
+print("Current working directory: ",cwd)
