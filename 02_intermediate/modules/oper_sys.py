@@ -24,6 +24,26 @@
    # Build scripts: create artifact folders, set permissions.
    # CI and testing: create isolated temp dirs and set env vars.
    # Light process control: run commands and set enviroment fro child precesses.
+# Key Concepts 
+   # current working directory: os.getcwd()
+   # Change directory: os.chdir(path)
+   # Path joining: os.path.join(base,file)
+   # Check existence: os.path.exists(path)
+   # Check file vs directory: os.path.isfile(path),os.path.isdir(path)
+
+   # List directory contents: os.listdir(path)
+   # Make directories: os.mkdir(path),os.makedirs(path,exist_ok=True)
+   # Remove files/directories: os.remove(file),os.rmdir(dir)
+   # Rename/move files: os.rename(src,dest)
+
+   # File metadata: os.start(path) -> size, modification time.
+   # Environment variables: os. environ["PATH"], os.getenv("HOME")
+   # Process control: os.system("echo Hello"), os.startfile(file)
+
+   # Atomic opeartions: safely replace files.
+   # Directory traversal: os.walk(path) for recursive scanning.
+   # Permissions: os.chmod(path,mode)
+   # Integration with other modules: combine os with shutil, subprocess, pathlib.
 
 # Operating and Functioning
 
