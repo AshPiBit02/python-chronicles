@@ -74,3 +74,21 @@ else:
     print("File does not exists: ",path)
    
 # Level Intermediate
+
+# Make a folder called backup1.
+os.makedirs(os.path.join(os.getcwd(),"backup1"),exist_ok=True)
+# Move all .jpg file from project into backup1.
+# Print confirmation for each file moved.
+import shutil
+dst=os.path.join(os.getcwd(),"backup1")
+src=os.path.join(os.getcwd(),"project1")
+os.makedirs(src,exist_ok=True)
+for name in os.listdir(os.path.join(os.getcwd(),"project1")):
+    if name.endswith(".jpg"):
+        src_path=os.path.join(src,name)
+        dst_path=os.path.join(dst,name)
+        shutil.move(src_path,dst_path)
+        print("Moved: ",name)
+
+
+
