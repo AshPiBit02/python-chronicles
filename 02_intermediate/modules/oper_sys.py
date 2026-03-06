@@ -90,5 +90,19 @@ for name in os.listdir(os.path.join(os.getcwd(),"project1")):
         shutil.move(src_path,dst_path)
         print("Moved: ",name)
 
+# Level Advance
 
+# Reads all files in a folder
+# Prints their size and last modified time.
+# Reads an environment variable(like PATH) and prints it.
+import time as tm
+folder=os.path.join(os.getcwd(),"project1")
+for fname in os.listdir(folder):
+    path=os.path.join(folder,fname)
+    if os.path.isfile(path):
+        st=os.stat(path)
+        size=st.st_size
+        mtime=tm.ctime(st.st_mtime)
+        print(f"{fname}: {size} bytes, modified {mtime}")
+print("PATH env var (truncated): ",os.getenv("PATH")[:200])
 
