@@ -13,3 +13,25 @@
        # code that runs if no error occurs
     # finally: 
        # code that always runs (cleanup)
+# Examples:
+try:
+    print(10/0)
+except ZeroDivisionError:
+    print("Division by zero is not allowed")
+
+try: 
+    num=int("abc")
+    result=10/num
+except ValueError:
+    print("Invalid input! Please enter a number.")
+except ZeroDivisionError:
+    print("Cannot divide by zero.")
+
+try: 
+    num=int("4a")
+except ValueError:
+    print("Conversion failed")
+else:
+    print("Conversion successfull: ",num)
+finally:
+    print("This block always runs.")
