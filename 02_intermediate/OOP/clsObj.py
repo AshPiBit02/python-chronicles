@@ -47,3 +47,41 @@ car1=Car("BMW","Black")
 car2=Car("Toyota","Grey")
 car1.drive()
 car2.drive()
+
+# Types of Constructors
+# 1. Defualt Constructor 
+    # A constructor that takes no arguments(other than self).
+    # It simply initializes the object with fixed/default values.
+class student:
+     def __init__(self): # default constructor
+          self.name="Unknown"
+          self.age=0
+s=student()
+print(s.name,s.age)
+# 2. Parameterized Constructor
+    # A constructor that accepts arguments to initialize attributes dynamically.
+    # Most commonly used in real projects.
+class student:
+     def __init__(self,name,age):
+          self.name=name
+          self.age=age
+s=student("Aash",21)
+print(f"Name: {s.name} \nAge: {s.age}")
+# 3. Copy Constructor( Conceptual in Python)
+   # Python doesn't have a built-in copy constructor like C++
+   # But can simulate it by writing a constructor that takes another object as input.
+   # creates a new object as a copy of an existing object.
+class learner:
+     def __init__(self,name=None,age=None,other=None):
+          if other: # copy constructor
+               self.name=other.name
+               self.age=other.age
+          else: # normal constructor
+               self.name=name 
+               self.age=age
+# Orginal Object
+s1=learner("Rita",21)
+
+s2=learner(other=s1) # copy constructor
+print(s1.name,s1.age)
+print(s2.name,s2.age)
