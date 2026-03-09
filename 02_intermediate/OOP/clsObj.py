@@ -210,7 +210,7 @@ class BankAccount:
           if amount>0 :
                sender_ac.withdraw(amount)
                receiver_ac.deposite(amount)    
-               print(f"Transaction Successful: ${amount} transferred from {self.sender_ac} to {self.receiver_ac}")
+               print(f"Transaction Successful: ${amount} transferred from {sender_ac.owner} to {receiver_ac.owner}")
           elif amount<=0:
                print("Invalid amount!")
           else:
