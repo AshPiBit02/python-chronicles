@@ -101,3 +101,35 @@ s2=Student(source=s1)
 print(s0.name,s0.age)
 print(s1.name,s1.age)
 print(s2.name,s2.age)
+
+# Challenges
+
+# Level 1 (Goal -> understand how to define a class and create objects)
+   # Create a Book class with attributes title and author.
+   # Add a method display() that prints "Title: <title>, Author: <author>".
+   # Create two book objects and call display() on each.
+class Book:
+     def __init__(self,title=None,author=None):
+          self.title=title
+          self.author=author
+     def display(self):
+          print(f"Title: {self.title}, Author: {self.author}")
+book1=Book("Fifa Harward","Wavin' Flag")
+book2=Book("Edward Norton","Game of thrones")
+book1.display()
+book2.display()
+
+# Level 2 (Goal -> Practice default and parameterized constructors.)
+    # Create a Student class.
+    # Default constructor sets name="Unknown" and age=0.
+    # Parameterized constructor sets name and age from agumnets.
+    # Create one student with default values and one with custom values, then print them.
+class Student:
+     def __init__(self,name="Unknown",age=0):
+          self.name=name
+          self.age=age
+stu1=Student()
+stu2=Student("XXXXX",43)
+print(stu1.name,stu1.age)
+print(stu2.name,stu2.age)
+     
