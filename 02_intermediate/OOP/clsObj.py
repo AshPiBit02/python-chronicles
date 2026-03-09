@@ -206,11 +206,11 @@ class BankAccount:
                print(f"${amount} withdrawal from {self.owner}'s account. Current balance is {self.balance}")
           else:
                print("Insufficient balance!")
-     def transfer(self,amount=0,sender_ac=None,receiver_ac=None):
+     def transfer(self,amount=0,receiver_ac=None):
           if amount>0 :
-               sender_ac.withdraw(amount)
+               self.withdraw(amount)
                receiver_ac.deposite(amount)    
-               print(f"Transaction Successful: ${amount} transferred from {sender_ac.owner} to {receiver_ac.owner}")
+               print(f"Transaction Successful: ${amount} transferred from {self.owner} to {receiver_ac.owner}")
           elif amount<=0:
                print("Invalid amount!")
           else:
@@ -221,10 +221,13 @@ ac1=BankAccount("ashpibit",2500)
 ac2=BankAccount("lullidro",3000)
 ac1.display()
 ac2.display()
-# ac1.deposite(5000)
-# ac2.withdraw(500)
-# ac1.display()
-# ac2.display()
-ac1.transfer(500,ac1,ac2)
+ac1.deposite(5000)
+ac2.withdraw(500)
+ac1.display()
+ac2.display()
+ac1.display()
+ac2.display()
+ac1.transfer(500,ac2)
+ac2.transfer(3000,ac1)
 ac1.display()
 ac2.display()
