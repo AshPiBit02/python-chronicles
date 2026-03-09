@@ -73,7 +73,7 @@ print(f"Name: {s.name} \nAge: {s.age}")
    # creates a new object as a copy of an existing object.
 class learner:
      def __init__(self,name=None,age=None,other=None):
-          if other: # copy constructor
+          if other: # copy constructor (other represents another object of the same class)
                self.name=other.name
                self.age=other.age
           else: # normal constructor
@@ -83,5 +83,21 @@ class learner:
 s1=learner("Rita",21)
 
 s2=learner(other=s1) # copy constructor
+print(s1.name,s1.age)
+print(s2.name,s2.age)
+
+# Example
+class Student:
+     def __init__(self,name=None,age=None,source=None):
+          if source: # if another student object is passed
+               self.name=source.name
+               self.age=source.age
+          else: # normal initialization
+               self.name=name
+               self.age=age
+s0=Student()
+s1=Student("Abcd",23)
+s2=Student(source=s1)
+print(s0.name,s0.age)
 print(s1.name,s1.age)
 print(s2.name,s2.age)
