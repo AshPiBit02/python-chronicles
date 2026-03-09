@@ -156,4 +156,28 @@ print(f"Name: {l1.name} Roll_no: {l1.roll_no} Course: {l1.course}")
 print(f"Name: {l2.name} Roll_no: {l2.roll_no} Course: {l2.course}")
 print(f"Name: {l3.name} Roll_no: {l3.roll_no} Course: {l3.course}")
 
+# Level 4 (Goal -> Add functionality to classes.)
+   # Create a Car class with attributes brand,color, and speed.
+   # Add Methods:
+        # drive() -> prints "The car is driving at <speed> km/h."
+        # accelerate(amount) -> increases speed.
+        # break(amount) -> decreases speed.
+   # Create a car object ans simulate driving, acceleration, and braking.
+class Car:
+     def __init__(self,brand="Unknown",color="Unspecified",speed=0):
+          self.brand=brand
+          self.color=color
+          self.speed=speed
+     def drive(self):
+          print(f"The car is driving at {self.speed} km/h.")
+     def accelerate(self,amount):
+          self.speed+=amount
+          print(f"{self.brand} accelerated by {amount} km/h. Current speed: {self.speed}")
+     def brake(self,amount):
+          self.speed=max(0,self.speed-amount) # to prevent from going negative
+          print(f"{self.brand} slowed down by {amount} km/h. Current speed: {self.speed}")
 
+car1=Car("BMW","Black",499)
+car1.drive()
+car1.brake(100)
+car1.accelerate(200)
