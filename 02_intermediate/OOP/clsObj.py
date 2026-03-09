@@ -181,3 +181,36 @@ car1=Car("BMW","Black",499)
 car1.drive()
 car1.brake(100)
 car1.accelerate(200)
+
+# Level 5 (Goal -> Combine constructors, attributes, and methods)
+   # Build a BankAccount class.
+   # Attributes: owner, balance.
+   # Methods: 
+       # deposite(amount) -> add to balance
+       # withdraw(amount) -> subtracts if enough balance
+       # display() -> prints owner and balance.
+   # Create accounts for two people and simulate deposits/withdrawals.
+class BankAccount:
+     def __init__(self,owner=None,balance=0):
+          self.owner=owner
+          self.balance=balance
+     def deposite(self,amount):
+          if amount>0:
+               self.balance+=amount
+               print(f"${amount} deposited to {self.owner}'s account. Current balance is {self.balance}")
+          else:
+               print("Invalid amount!")
+     def withdraw(self,amount):
+          self.balance-=amount
+          if self.balance>0:
+               print(f"${amount} withdrawal from {self.owner}'s account. Current balance is {self.balance}")
+          else:
+               print("Insufficient balance!")
+     def display(self):
+          print(f"Owner: {self.owner}\n Balance: ${self.balance}")
+ac1=BankAccount("ashpibit",2500)
+ac2=BankAccount("lullidro",3650)
+ac1.display()
+ac2.display()
+ac1.deposite(5000)
+ac2.withdraw(500)
