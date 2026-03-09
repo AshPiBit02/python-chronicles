@@ -132,4 +132,28 @@ stu1=Student()
 stu2=Student("XXXXX",43)
 print(stu1.name,stu1.age)
 print(stu2.name,stu2.age)
-     
+
+# Level 3 (Goal -> learn how to duplicate objects)
+   # Extend a Learner class.
+   # Add a constructor that accepts another Learner object and copies its attributes.
+   # Create l1 normally, then create s2 by copying s1.
+   # Print both to confirm they are independent objects with the same data.
+class Learner:
+     def __init__(self,name=None,roll_no=None,course=None,Other=None):
+          if Other:
+               self.name=Other.name
+               self.roll_no=Other.roll_no
+               self.course=Other.course
+          else:
+               self.name=name
+               self.roll_no=roll_no
+               self.course=course
+l1=Learner("Aashish",24070188,"Computer Engineering")
+l0=Learner()
+l2=Learner(Other=l1)
+l3=Learner(Other=l0)
+print(f"Name: {l1.name} Roll_no: {l1.roll_no} Course: {l1.course}")
+print(f"Name: {l2.name} Roll_no: {l2.roll_no} Course: {l2.course}")
+print(f"Name: {l3.name} Roll_no: {l3.roll_no} Course: {l3.course}")
+
+
