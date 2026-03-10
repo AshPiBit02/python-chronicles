@@ -12,3 +12,43 @@
       # Called on instances: 'obj.method(...)' - python binds 'obj' to 'self'.
       # Can access 'self' attributes and other instance methods.
       # Can return values or mutate the instance.
+# Examples
+
+  # Minimal
+class Person:
+    def __init__(self,name,age):
+        self.name=name
+        self.age=age
+    def greet(self):
+        return f"Hi, I'm {self.name}"
+    def have_birthday(self):
+        self.age+=1
+        return self.age
+p=Person("Aashish",21)
+print(p.greet())
+print(p.have_birthday())
+
+  # Validation and State Change
+class BankAccount:
+    def __init__(self,owner,balance=0):
+        self.owner=owner
+        self.balance=balance
+    def deposit(self,amount):
+        if amount <=0:
+            raise ValueError("Invalid amount!")
+        self.balance+=amount
+        return self.balance
+    def withdraw(self,amount):
+        if amount <=0:
+            raise ValueError("Invalid amount")
+        if amount > self.balance:
+            raise ValueError("Insufficient funds")
+        self.balance-=amount
+        return self.balance
+try:
+     acct=BankAccount("cjbtk",500)
+     print(acct.deposit(100))
+     print(acct.deposit(10))
+     print(acct.withdraw(1000))
+except ValueError as e:
+    print("Error: ",e)
