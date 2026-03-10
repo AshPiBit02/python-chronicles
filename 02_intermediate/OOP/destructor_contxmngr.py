@@ -66,8 +66,23 @@ class FilehandlerCM:
         self.file=open(self.filename,"w")
         print("File opened")
         return self.file # returned object is assigned to variable in 'with'
-    def __exit__(self,exc_type,exc_val,exc_tb):
+    def __exit__(self,exc_type,exc_val,exc_tb): # exc are the exception details that python automatically passes into a context manager's __exit__ method when an error occurs inside a 'with' block
         self.file.close()
         print("File closed safely")
 with FilehandlerCM("demoCM") as f:
     f.write("Hello, this file belongs to context manager")
+
+    # Handling Exceptions
+class DemoA:
+    def __enter__(self):
+        print("Entering context")
+        return self
+    def __exit__(self,exc_type,exc_val,exc_tb):
+        print("Exiting context")
+        if exc_type:
+            print(f"Error occurred: {exc_val}")
+        return True # suppresses the exception
+with DemoA() as d:
+    print("Inside block")
+    raise ValueError("Something went wrong")
+
