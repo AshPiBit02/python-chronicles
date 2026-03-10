@@ -14,3 +14,13 @@
               # Timing is not guranteed(depends on garbage collection.)
               # Exceptions inside __del__ are ignored.
               # Circular references may prevent destructors from running.
+# Example:
+   # simple destructor
+class Demo:
+    def __init__(self,name):
+        self.name=name
+        print(f"Object {self.name} created")
+    def __del__(self):
+        print(f"Destructor called, object {self.name} deleted")
+d=Demo("test")
+del d # delete object explicitly
