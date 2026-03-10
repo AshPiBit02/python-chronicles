@@ -16,27 +16,27 @@
               # Circular references may prevent destructors from running.
 # Example:
    # simple destructor
-class Demo:
-    def __init__(self,name):
-        self.name=name
-        print(f"Object {self.name} created")
-    def __del__(self):
-        print(f"Destructor called, object {self.name} deleted")
-d=Demo("test")
-del d # delete object explicitly
+# class Demo:
+#     def __init__(self,name):
+#         self.name=name
+#         print(f"Object {self.name} created")
+#     def __del__(self):
+#         print(f"Destructor called, object {self.name} deleted")
+# d=Demo("test")
+# del d # delete object explicitly
 
-   # File handling
-class FileHandler:
-    def __init__(self,filename):
-        self.file=open(filename,"w")
-        print("File opened")
-    def write(self,text):
-        self.file.write(text)
-    def __del__(self):
-        self.file.close()
-        print("File closed automatically")
-f=FileHandler("demo.txt")
-f.write("This is a demo file")
+#    # File handling
+# class FileHandler:
+#     def __init__(self,filename):
+#         self.file=open(filename,"w")
+#         print("File opened")
+#     def write(self,text):
+#         self.file.write(text)
+#     def __del__(self):
+#         self.file.close()
+#         print("File closed automatically")
+# f=FileHandler("demo.txt")
+# f.write("This is a demo file")
 
 # Context Manager
    # a Python construc that allows you to set up and clean up resources automatically.
@@ -57,3 +57,17 @@ f.write("This is a demo file")
             # receives exception details if an error occurred inside the block.
         # with statement
             # ensures __enter__ and __exit__ are called automatically. 
+# Examples:
+   # File Handling with Context Manager
+class FilehandlerCM:
+    def __init__(self,filename):
+        self.filename=filename
+    def __enter__(self):
+        self.file=open(self.filename,"w")
+        print("File opened")
+        return self.file # returned object is assigned to variable in 'with'
+    def __exit__(self,exc_type,exc_val,exc_tb):
+        self.file.close()
+        print("File closed safely")
+with FilehandlerCM("demoCM") as f:
+    f.write("Hello, this file belongs to context manager")
