@@ -48,6 +48,10 @@ class BankAccount:
     def transfer(self,amount,other):
         self.withdraw(amount)
         other.deposit(amount)
+    # __str__(self) -> a special method that defines how your object is represented as a string. Automatically runs when you call str(obj) or print the object.
+    def __str__(self):
+        print('-'*40)
+        return f"Owner: {self.owner} \n Balance: ${self.balance}"
 try:
      acct=BankAccount("account0",5000)
 except ValueError as e:
@@ -71,4 +75,13 @@ except ValueError as e:
     print(f"Error: {e}")
 print(acct1.balance)
 print(acct.balance)
+
+# vars(self) a built-in function that returns the __dict__ of an object
+print(vars(acct))
+print(vars(acct1))
+
+print(acct)
+print(acct1)
+print(str(acct))
+
 
