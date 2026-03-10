@@ -45,10 +45,30 @@ class BankAccount:
             raise ValueError("Insufficient funds")
         self.balance-=amount
         return self.balance
+    def transfer(self,amount,other):
+        self.withdraw(amount)
+        other.deposit(amount)
 try:
-     acct=BankAccount("cjbtk",500)
-     print(acct.deposit(100))
-     print(acct.deposit(10))
-     print(acct.withdraw(1000))
+     acct=BankAccount("account0",5000)
 except ValueError as e:
     print("Error: ",e)
+
+try:
+    acct1=BankAccount("account1",1000)
+except ValueError as e:
+    print(f"Error: {e}")
+
+try:
+    acct.transfer(2000,acct1)
+except ValueError as e:
+    print(f"Error: {e}")
+print(acct1.balance)
+print(acct.balance)
+
+try:
+    acct.transfer(1500,acct1)
+except ValueError as e:
+    print(f"Error: {e}")
+print(acct1.balance)
+print(acct.balance)
+
