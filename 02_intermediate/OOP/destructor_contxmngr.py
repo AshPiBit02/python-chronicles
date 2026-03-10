@@ -37,3 +37,23 @@ class FileHandler:
         print("File closed automatically")
 f=FileHandler("demo.txt")
 f.write("This is a demo file")
+
+# Context Manager
+   # a Python construc that allows you to set up and clean up resources automatically.
+   # is most commonly used with the "with" statement.
+   # Purpose: ensure that resources(like files, database connections, locks) are properly released, even if errors occur.
+   # Uses:
+        # File handling: automatically close files after use.
+        # Database connections: ensure connections are closed safely.
+        # Threading/locks: acquire and release locks without forgetting.
+        # Temporary changes: apply a setting for block of code, then restore it.
+   # Essential Elements:
+        # __enter__ method
+            # runs when the "with" block starts.
+            # sets up the resource and returns it.
+        # __exit__ method
+            # runs when the "with" block ends(whether normally or due to an error)
+            # cleans up the resource.
+            # receives exception details if an error occurred inside the block.
+        # with statement
+            # ensures __enter__ and __exit__ are called automatically. 
