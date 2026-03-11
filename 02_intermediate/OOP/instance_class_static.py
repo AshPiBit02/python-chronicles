@@ -1,4 +1,4 @@
-# Instance 
+# Instance Method
    # These methods are functions defined inside a class whose first parameter is conventionally named 'self'.
    # When you call the method on an object, 'self' refers to that specific instance, giving the method access to the instance's attributes and other methods.
    # Uses:
@@ -85,3 +85,15 @@ print(acct1)
 print(str(acct))
 
 
+
+
+# Class Method
+  # a method that operates on the class itself, not on individual oibjects.
+  # receives the class as its first argument, conventionally named 'cls'.
+  # declared with the '@classmethod' decorator.
+  # Purpose: work with class-level data, provide alternate constructors, or define behavior that applies to the class as a whole.
+  # Uses:
+       # Modify class variables -> change values shared across all instances.
+       # Alternate constructors -> create objects in different ways(e.g. from a dictionary, JSON, or database row).
+       # Factory methods -> encapsulate complex object creation logic.
+       # Class-wide operations -> perform tasks that affect the class rather than a single object.
