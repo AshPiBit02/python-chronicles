@@ -235,3 +235,32 @@ p.refill(2)
 p.write()
 p.write()
 
+   # Build a 'Bottle' class with attributes 'capacity' and 'current_volume'.
+   # Add instance methods fill(amount) and drink(amount) to adjust the volume.
+   # Prevent drink from going below 0 and fill from exceeding capacity.
+class Bottle:
+    def __init__(self,capacity=1000,current_volume=750):
+        self.capacity=capacity
+        self.current_volume=current_volume
+    def fill(self,amount):
+        if self.current_volume+amount > self.capacity:
+            raise ValueError("Water overflow")
+        self.current_volume+=amount
+        print(f"{amount} ml water filled")
+    def drink(self,amount):
+        if self.current_volume-amount < 0:
+            raise ValueError("Can't drink! (not enough water)")
+        self.current_volume-=amount
+        print(f"{amount} ml water deducted")
+b=Bottle()
+try: 
+    b.fill(1)
+except ValueError as e:
+    print(f"Error: ", e)
+try: 
+    b.drink(751)
+except ValueError as e:
+    print(f"Error: ", e)
+print(b.current_volume,"ml")
+print(b.capacity,"ml")
+
