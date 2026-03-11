@@ -264,3 +264,64 @@ except ValueError as e:
 print(b.current_volume,"ml")
 print(b.capacity,"ml")
 
+# Level 2(State Management)
+  # Design a Door class with attribute is_locked.
+  # Add instance methods lock() and unlock().
+  # Add a method status() that prints whether the door is locked or unlocked.
+class Door:
+    def __init__(self,is_locked=False):
+        self.is_locked=is_locked
+    def lock(self):
+        if self.is_locked==True:
+            print("Already locked")
+            return
+        self.is_locked=True
+        print("Door locked")
+    def unlock(self):
+        if self.is_locked==False:
+            print("Already Unlocked")
+            return
+        self.is_locked=False
+        print("Door unlocked")
+    def status(self):
+        print(f"Status: {self.is_locked}")
+d=Door()
+d.status()
+d.unlock()
+d.lock()
+d.lock()
+  # Create a 'Phone' class with attributes 'battery' and is_on.
+  # Add instance methods 'power_on()', 'power_off()', and charge(amount).
+  # Ensure battery never goes above 100%.
+class Phone:
+    def __init__(self,battery=100):
+        self.battery=battery
+    def power_on(self):
+        if self.battery <= 0:
+            Phone.power_off()
+            return
+        self.battery-=10 # with each power on battery discharge by 10%
+        print("Power ON")
+    def power_off():
+        print("Power OFF")
+    def charge(self,amount):
+        if self.battery+amount>100:
+            print("Non real power")
+            return
+        self.battery+=amount
+        print(f"Battery charged by {amount}%. Current battery: {self.battery}")
+Phn=Phone()
+Phn.charge(20)
+Phn.power_on()
+Phn.power_on()
+Phn.power_on()
+Phn.power_on()
+Phn.power_on()
+Phn.power_on()
+Phn.power_on()
+Phn.power_on()
+Phn.power_on()
+Phn.power_on()
+Phn.power_on()
+Phn.charge(67)
+print(Phn.battery)
