@@ -152,6 +152,8 @@ stu2=StudentInfo(3,"Arry",2.0)
 print(StudentInfo.get_student_count())
 print(StudentInfo.get_avg_gpa())
 
+print('*'*40)
+
 # Static Method
    # a method inside a class that does not take 'self' or 'cls' as its first argument.
    # Declared with the '@staticmethod' decorator.
@@ -167,4 +169,41 @@ print(StudentInfo.get_avg_gpa())
        # No automatic first argument: unlike instance(self) or class(cls) methods.
        # Call style: can be called on the class(Class.method(...)) or on an instance(obj.method(...)), but neither self nor cls is passed.
        # Behavior: acts like plain function, but namespaced inside the class.
-       
+# Example
+   # Utility Function
+class MathUtil:
+    @staticmethod
+    def add(a,b):
+        return a+b
+    @staticmethod
+    def is_even(n):
+        return n%2==0
+print(MathUtil.add(3,4))
+print(MathUtil.is_even(3))
+print(MathUtil.is_even(8))
+   # Validation inside a class
+class BankAccount:
+    def __init__(self,owner,balance=0):
+        self.owner=owner
+        self.balance=balance
+    @staticmethod
+    def validation_amount(amount):
+        if amount <=0:
+            raise ValueError("Amount must be positive")
+        return True
+    def deposit(self,amount):
+        BankAccount.validation_amount(amount) # call static method
+        self.balance+=amount
+        return self.balance
+ac=BankAccount("Aashish",5000)
+try: 
+     ac.deposit(500)
+except ValueError as e:
+    print(f"Error: {e}")
+print(ac.balance)
+try: 
+     ac.deposit(-100)
+except ValueError as e:
+    print(f"Error: {e}")
+print(ac.balance)
+
