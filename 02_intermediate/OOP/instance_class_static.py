@@ -162,4 +162,9 @@ print(StudentInfo.get_avg_gpa())
        # Organizational clarity: keep related functions inside the class rather than floating in a module.
        # Independent logic: when the function doesn't need to access instance(self) or class(cls) attributes.
        # Code reusablility: makes it clear the function beglongs conceptually to the class.
+   # Key Elements 
+       # Decorator: '@staticmethod' must be placed above the method definition.
+       # No automatic first argument: unlike instance(self) or class(cls) methods.
+       # Call style: can be called on the class(Class.method(...)) or on an instance(obj.method(...)), but neither self nor cls is passed.
+       # Behavior: acts like plain function, but namespaced inside the class.
        
