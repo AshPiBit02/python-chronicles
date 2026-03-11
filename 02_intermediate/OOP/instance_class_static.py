@@ -85,10 +85,10 @@ print(acct1)
 print(str(acct))
 
 
-
+print('*'*40)
 
 # Class Method
-  # a method that operates on the class itself, not on individual oibjects.
+  # a method that operates on the class itself, not on individual objects.
   # receives the class as its first argument, conventionally named 'cls'.
   # declared with the '@classmethod' decorator.
   # Purpose: work with class-level data, provide alternate constructors, or define behavior that applies to the class as a whole.
@@ -97,3 +97,32 @@ print(str(acct))
        # Alternate constructors -> create objects in different ways(e.g. from a dictionary, JSON, or database row).
        # Factory methods -> encapsulate complex object creation logic.
        # Class-wide operations -> perform tasks that affect the class rather than a single object.
+  # Key Elements:
+       # Decorator: '@classmethod' must be placed above the method definintion.
+       # First  parameter: 'cls', representing the class itself.
+       # Access: can read and modify class atrributes, but not instance attributes directly.
+       # Call style: can be called on the class (Class.method(..)) or on an instance(obj.method(...)), but always receives the class as 'cls'.
+# Example
+  # Modify class varibles
+class BankAccount:
+    interest_rate=0.2 # class variable shared by all accounts
+    def __init__(self,owner,balance=0):
+        self.owner=owner
+        self.balance=balance
+    @classmethod
+    def set_intereset_rate(cls,rate):
+        cls.interest_rate=rate
+BankAccount.set_intereset_rate(0.05)
+print(BankAccount.interest_rate)
+
+  # Alternate Constructor
+class BankAccount:
+    def __init__(self,owner,balance=0):
+        self.owner=owner
+        self.balance=balance
+    @classmethod
+    def from_dict(cls,data):
+        return cls(data["owner"],data["balance"])
+data={"owner":"Aashish","balance":2500000}
+ac=BankAccount.from_dict(data)
+print(ac.owner,ac.balance)
