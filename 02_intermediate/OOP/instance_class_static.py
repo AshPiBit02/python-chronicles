@@ -124,5 +124,30 @@ class BankAccount:
     def from_dict(cls,data):
         return cls(data["owner"],data["balance"])
 data={"owner":"Aashish","balance":2500000}
+a=BankAccount("dj",1)
 ac=BankAccount.from_dict(data)
 print(ac.owner,ac.balance)
+
+class StudentInfo:
+    count=0
+    total_gpa=0
+    def __init__(self,roll_no,name,gpa):
+        self.name=name
+        self.roll_no=roll_no
+        self.gpa=gpa
+        StudentInfo.count+=1
+        StudentInfo.total_gpa+=gpa
+    @classmethod
+    def get_student_count(cls):
+        return f"Total no of student: {cls.count}"
+    @classmethod
+    def get_avg_gpa(cls):
+        if cls.count==0:
+            return 0
+        else:
+            return f"Average gpa : {cls.total_gpa/cls.count:.2f}"
+stu1=StudentInfo(1,"John",3.96)
+stu2=StudentInfo(2,"Snow",2.8)
+stu2=StudentInfo(3,"Arry",2.0)
+print(StudentInfo.get_student_count())
+print(StudentInfo.get_avg_gpa())
