@@ -151,3 +151,15 @@ stu2=StudentInfo(2,"Snow",2.8)
 stu2=StudentInfo(3,"Arry",2.0)
 print(StudentInfo.get_student_count())
 print(StudentInfo.get_avg_gpa())
+
+# Static Method
+   # a method inside a class that does not take 'self' or 'cls' as its first argument.
+   # Declared with the '@staticmethod' decorator.
+   # Purpose: group uitility functions inside a class's namespace, even though they don't depend on instance or class data.
+   # They behave just like normal functions, but live inside the class for logical organization.
+   # Uses: 
+       # Uitlity/helper functions: calculations, validations, or transformations related to the class.
+       # Organizational clarity: keep related functions inside the class rather than floating in a module.
+       # Independent logic: when the function doesn't need to access instance(self) or class(cls) attributes.
+       # Code reusablility: makes it clear the function beglongs conceptually to the class.
+       
