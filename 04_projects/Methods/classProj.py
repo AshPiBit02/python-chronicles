@@ -33,15 +33,17 @@ class AppConfig:
     debug=False
     version="2.0"
     @classmethod
-    def set_debug(flag):
-        if flag.debug:
-            print("Already debugged")
-            return
-        flag.debug=True
-        print("Debugged successfully")
+    def set_debug(cls,flag:bool):
+        cls.debug=bool(flag)
+        return f"Debug mode set to {cls.debug}"
     @classmethod
     def info(cls):
-        return vars()
+        return {"debug": cls.debug,"version": cls.version}
+    @classmethod
+    def set_version(cls,version:str):
+        cls.version=version
+        return f"Version updated to {cls.version}"
 print(AppConfig.info())
-AppConfig.set_debug()
+AppConfig.set_version("2.1")
+AppConfig.set_debug(True)
 print(AppConfig.info())
