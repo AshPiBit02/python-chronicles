@@ -47,3 +47,42 @@ print(AppConfig.info())
 AppConfig.set_version("2.1")
 AppConfig.set_debug(True)
 print(AppConfig.info())
+
+# Level 2(Alternate Constructors)
+  # From Dictionary
+    # Create a User class with username and email.
+    # Implement @classmethod from_dict(cls,data) that returns a User from {"username":....,"email":.....}.
+class User:
+    def __init__(self,username=None,email=None):
+        self.username=username
+        self.email=email
+    @classmethod
+    def from_dict(cls,data):
+        return f"username: {data["username"]}\nemail: {data["email"]}"
+data={"username":"ashpibit","email":"aashishcharudhari249@gmail.com"}
+print(User.from_dict(data))
+  # Create a Product class with name and price.
+  # Implement @classmethod from_csv(cls,line) where line is "name,price" and return a Product.
+class Product:
+    def __init__(self,name=None,price=0):
+        self.name=name
+        self.price=price
+    @classmethod
+    def from_csv(cls,line: str):
+        parts=line.strip().split(",")
+        if len(parts)!=2:
+            raise ValueError("CSV line must contain exactly two values: name, price")
+        name,price=parts
+        return cls(name,price)
+    def __str__(self):
+        return f"Product(name={self.name}, price={self.price})"
+P1=Product("Laptop",120000)
+print(P1)
+line="Phone,70000"
+p2=Product.from_csv(line)
+print(p2)
+bad_line="InvalidLine"
+try:
+    p3=Product.from_csv(bad_line)
+except ValueError as e:
+    print("Error: ",e)
