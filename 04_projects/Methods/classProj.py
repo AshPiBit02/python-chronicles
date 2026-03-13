@@ -164,7 +164,7 @@ print(doc2.version,doc2.content)
 # Check current version counter 
 print(Document.current_version())
 
-"""Level 3 (Real World Challenge)"""
+"""Level 4 (Real World Challenge)"""
 # BankAccount with Global settings
    # Create 'BankAccount' with instance attributes 'owner' and 'balance'.
    # Add class attribute 'default_currency="USD"' and 'interest_rate=0.01'.
@@ -197,9 +197,39 @@ class BankAccount:
         balance=data.get("balance",0.0)
         currency=data.get("currency",None) # None -> constructor will use default 
         return cls(owner,balance,currency)
+    def deposit(self,amount):
+        if amount < 0:
+            raise ValueError("Negative amount!")
+        self.balance+=amount
+        return self.balance
+    def withdraw(self,amount):
+        if amount <=0:
+            raise ValueError("Withdraw amount must be positive")
+        if amount > self.balance:
+            raise ValueError("Insufficient funds.")
+        self.balance-=amount
+        return self.balance
+    def apply_interest(self):
+        self.balance+=self.balance*self.__class__.interest_rate
+        return self.balance
+    
     def __str__(self):
-        return f"BankAccount(owner= {self.owner}\nbalance= {self.balance:.2f} {self.currency}"
-data={"owner":"ashpibit","Balance":9001.0,"currency":"GBP"}
-a1=BankAccount("Ash",200)
+        return f"BankAccount(owner= {self.owner}  balance= {self.balance:.2f} {self.currency}"
+print('-'*40)
+data={"owner":"ashpibit","balance":9001.0,"currency":"GBP"}
+print(BankAccount.default_currency)
+print(BankAccount.interest_rate)
+
+print(BankAccount.set_currency("EURO"))
+print(BankAccount.set_interest_rate(0.2))
+
+a1=BankAccount("ash",2000)
+a2=BankAccount.from_dict(data)
+
 print(a1)
-print(BankAccount.from_dict(data))
+print(a2)
+
+a1.deposit(200)
+a1.withdraw(100)
+a1.apply_interest()
+print(a1.balance)
