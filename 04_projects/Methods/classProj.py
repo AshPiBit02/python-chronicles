@@ -86,3 +86,52 @@ try:
     p3=Product.from_csv(bad_line)
 except ValueError as e:
     print("Error: ",e)
+
+# Level 3 (Class state and Factories)
+  # Register Factory
+     # Create a 'Plugin' class with class attribute registry={}.
+     # Add '@classmethod register(cls,name,plugin_cls) to store plugin_cls' in 'registry'.
+     # Add '@classmethod create(cls,name,*args,**kwargs)' that instantiates the registered plugin class.
+class Plugin:
+    registry={}
+    @classmethod
+    def register(cls,name,plugin_cls):
+        """Register a plugin class under a given name."""
+        if name in cls.registry:
+            raise ValueError(f"Plugin '{name}' already registered.")
+        cls.registry[name]=plugin_cls
+        return f"Plugin '{name}' registered."
+    @classmethod
+    def create(cls,name,*args,**kwargs):
+        if name not in cls.registry:
+            raise ValueError(f"No plugin registered under '{name}'.")
+        return cls.registry[name](*args,**kwargs)
+    @classmethod
+    def list_plugins(cls):
+        """Return a list of all registered plugin names."""
+        return list(cls.registry.keys())
+class LoggerPlugin:
+    def __init__(self,level="INFO"):
+        self.level=level
+    def run(self):
+        return f"Logging at {self.level} level."
+class AuthPlugin:
+    def __init__(self,user):
+        self.user=user
+    def run(self):
+        return f"Authenticating user {self.user}."
+#Register plugins
+print(Plugin.register("logger",LoggerPlugin))
+print(Plugin.register("auth",AuthPlugin))
+
+# List available plugins
+print(Plugin.list_plugins())
+
+# Create instances dynamically
+logger=Plugin.create("logger",level="DEBUG")
+print(logger.run()) 
+# Logging at DEBUG level.
+
+auth=Plugin.create("auth",user="ashpibit")
+print(auth.run())        
+# Authenticating user ashpibit
