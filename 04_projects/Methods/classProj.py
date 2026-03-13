@@ -163,3 +163,43 @@ print(doc2.version,doc2.content)
 
 # Check current version counter 
 print(Document.current_version())
+
+"""Level 3 (Real World Challenge)"""
+# BankAccount with Global settings
+   # Create 'BankAccount' with instance attributes 'owner' and 'balance'.
+   # Add class attribute 'default_currency="USD"' and 'interest_rate=0.01'.
+   # Implement @classmethod set_currency(cls,currency) and @classmethod set_interest_rate(cls,rate).
+   # Implement @classmethod from_dict(cls,data) as alternate consructor that respects default_currency if data lacks currency.
+class BankAccount:
+    default_currency="USD"
+    interest_rate=0.01
+    def __init__(self,owner=None,balance=0.0,currency=None):
+        self.owner=owner
+        self.balance=float(balance) 
+        self.currency=currency if currency is not None else self.__class__.default_currency
+    @classmethod
+    def set_currency(cls,currency):
+        cls.default_currency=currency
+        return f"Default currency set to {cls.default_currency}"
+    @classmethod
+    def set_interest_rate(cls,rate):
+        if rate < 0:
+            raise ValueError("Interest rate cannot be negative.")
+        cls.interest_rate=float(rate)
+        return f"Interest rate set to {cls.interest_rate}"
+    
+    """Alternate constructor"""
+    @classmethod
+    def from_dict(cls,data):
+        owner=data.get("owner")
+        if not owner:
+            raise ValueError("Owner is required to create a BankAccount.")
+        balance=data.get("balance",0.0)
+        currency=data.get("currency",None) # None -> constructor will use default 
+        return cls(owner,balance,currency)
+    def __str__(self):
+        return f"BankAccount(owner= {self.owner}\nbalance= {self.balance:.2f} {self.currency}"
+data={"owner":"ashpibit","Balance":9001.0,"currency":"GBP"}
+a1=BankAccount("Ash",200)
+print(a1)
+print(BankAccount.from_dict(data))
