@@ -135,3 +135,31 @@ print(logger.run())
 auth=Plugin.create("auth",user="ashpibit")
 print(auth.run())        
 # Authenticating user ashpibit
+
+"""Versioned Constructor"""
+# Create a 'Document' class with 'content' and 'version'.
+# Add @classmethod new_version(cls,content) that returns a 'Document' with 'version' increment from a class counter.
+class Document:
+    version_counter=2.0
+    def __init__(self,content,version):
+        self.content=content
+        self.version=version
+    @classmethod
+    def new_version(cls,content):
+        cls.version_counter+=.1
+        return cls(content,cls.version_counter)
+    @classmethod 
+    def current_version(cls):
+        return cls.version_counter
+# Create first document
+doc1=Document.new_version("Initial draft")
+print(doc1.version,doc1.content)
+# 1 Initial draft
+
+# Create second document
+doc2=Document.new_version("Edited draft")
+print(doc2.version,doc2.content)
+# 2 Edited draft
+
+# Check current version counter 
+print(Document.current_version())
