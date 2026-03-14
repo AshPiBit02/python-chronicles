@@ -21,9 +21,9 @@ I have organized this chronicle into logical "Chapters" to track my evolution as
 - [x] *Functions:* Arguments, Scope, and Lambda expressions.
 
 ### 🧪 Chapter 2: Pythonic Mastery
-- [ ] *List Comprehensions:* Writing concise, readable code.
-- [ ] *Error Handling:* try/except blocks and custom exceptions.
-- [ ] *File I/O:* Reading/writing JSON, CSV, and Text files.
+- [x] *List Comprehensions:* Writing concise, readable code.
+- [x] *Error Handling:* try/except blocks and custom exceptions.
+- [x] *File I/O:* Reading/writing JSON, CSV, and Text files.
 - [ ] *OOP:* Classes, Inheritance, and Encapsulation.
 
 ### ⚡ Chapter 3: Advanced Alchemy
