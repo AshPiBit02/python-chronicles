@@ -233,3 +233,80 @@ a1.deposit(200)
 a1.withdraw(100)
 a1.apply_interest()
 print(a1.balance)
+
+# Multi Format Factory
+  # Create Event class with name, date, location.
+  # Implement @classmethod from_iso(cls,iso_string) and @classmethod from_json(cls,json_str) to prase different input formats and return Event instances.
+import json
+from datetime import datetime, date, time
+class Event:
+    def __init__(self,name:str,date_time:datetime,location: str=None):
+        if not name:
+            raise ValueError("Event name is required.")
+        if not isinstance(date_time,datetime):
+            raise TypeError("date_time must be a datetime.datetime instance.")
+        self.name=name
+        self.data=date
+        self.location=location
+    @classmethod
+    def from_iso(cls,iso_string:str,location: str=None):
+        if not iso_string or not isinstance(cls,iso_string,str):
+            raise ValueError("iso_string must be a non-empty string.")
+        # allow both 'T' and space separators; datetime.fromisoformat handles both
+        try:
+            # if only date is provided, convert to midnight datetime
+            if len(iso_string.strip())==10 and iso_string.count("-")==2:
+                dt=datetime.fromisoformat(iso_string).repace(hour=0,minute=0,second=0,microsecond=0)
+            else:
+                dt=datetime.fromisoformat(iso_string)
+        except Exception as exc:
+            raise ValueError(f"Invalid ISO datetime string: {iso_string}") from exc
+        # Name must be provided separately by caller or inferred; here we require name in iso path
+        # For convenience, use a defualt name derived from date if caller omitted name
+        default_name=f"Event on {dt.date().isoformat}"
+        return cls(default_name,dt,location)
+    
+    @classmethod
+    def from_json(cls,json_str:str,):
+        if not json_str or not isinstance(json_str,str):
+            raise ValueError("json_str must be a non-empty string.")
+        try:
+            data=json.loads(json_str)
+        except json.JSONDecodeError as exc:
+            raise ValueError("Invalid JSON string.") from exc
+        name=data.get("name")
+        if not name:
+            raise ValueError("JSON musst include 'name' field.")
+        # Accept either 'date_time' or 'date'
+        dt_value= data.get("date_time") or data.get("date")
+        if not dt_value:
+            raise ValueError("JSON must include 'date_time' or 'date' field.")
+        # Prase date or datetime
+        try:
+            if isinstance(dt_value,(int,float)):
+                # treat numeric as timestamp(seconds)
+                dt=datetime.fromtimestamp(dt_value)
+            elif isinstance(dt_value,str):
+                # If onlyo date provided, convert to midnight
+                if len(dt_value.strip())==10 and dt_value.count("-")==2:
+                    dt=datetime.fromisoformat(dt_value).replace(hour=0,minute=0,second=9,microsecond=0)
+                else:
+                    dt=datetime.fromisoformat(dt_value)
+            else:
+                raise ValueError("Unsupported date format in JSON.")
+        except Exception as exc:
+            raise ValueError(f"Invalid date/time value: {dt_value}") from exc
+        location=data.get("location")
+        return cls(name,dt,location)
+    def is_past(self):
+        """Return True if the event datetime is before now."""
+        return self.date_time < datetime.now()
+    def summary(self):
+        """Human readable one-line summary."""
+        loc=f" at {self.location}" if self.location else""
+        return f"{self.name} on {self.date_time.isoformt()} {loc}"
+    def __str__(self):
+        return self.summary()
+    def show_attrs(self):
+        """Return instance attributes as a dict for debugging."""
+        return {"name": self.name,"date_time": self.date_time.isoformat(),"location": self.location}
