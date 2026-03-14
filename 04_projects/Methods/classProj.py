@@ -304,7 +304,7 @@ class Event:
     def summary(self):
         """Human readable one-line summary."""
         loc=f" at {self.location}" if self.location else""
-        return f"{self.name} on {self.date_time.isoformat()} {loc}"
+        return f"{self.name} on {self.date_time.isoformat()}{loc}"
     def __str__(self):
         return self.summary()
     def show_attrs(self):
@@ -316,3 +316,13 @@ e1=Event.from_iso("2026-03-14T09:00:00",location="Kahandu")
 # From ISO date only (defaults to midnight and uses defualt name)
 e2=Event.from_iso("2026-03-14")
 print(e2.show_attrs())
+
+# From  JSON with date_time
+json_str='{"name":"Launch","date_time":"2026-03-14T00:00:00","location":"Conference Hall"}'
+e3=Event.from_json(json_str)
+print(e3.summary())
+
+# From JSOn with date only
+json_str2='{"name":"Holiday","date_time":"2026-12-25"}'
+e4=Event.from_json(json_str2)
+print(e4.show_attrs())
