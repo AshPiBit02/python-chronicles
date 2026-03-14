@@ -246,7 +246,7 @@ class Event:
         if not isinstance(date_time,datetime):
             raise TypeError("date_time must be a datetime.datetime instance.")
         self.name=name
-        self.date_time=date_time
+        self.data_time=date_time
         self.location=location
     @classmethod
     def from_iso(cls,iso_string:str,location: str=None):
