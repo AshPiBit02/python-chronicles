@@ -36,6 +36,8 @@ class Expense:
             "spent_on":self.spent_on.isoformat(),
             "note":self.note,
         }
+    """r! tells python to use repr(){similar to __str__ but is shows exact contents including escape characters.} on that value before formatting it into the string"""
+    """Example: print(str("Hello\nWorld))-> Hello(in one line) then World(in next line) and print(repr("Hello\nWorld")) -> 'Hello\nWorld' """
     def __repr__(self):
         return f"Expense(category={self.category!r}, amount={self.amount:.2f}, spent_on={self.spent_on}, note={self.note!r})"
 # Valid expenses
