@@ -57,6 +57,25 @@ print(Expense.validate_amount("abc"))
   # 2. Temperature Converter
      # Class: Temperature
      # static method: c_to_f(celsius), f_to_c(fahrenheit)
+class Temperature:
+    @staticmethod
+    def c_to_f(celsius):
+        if not isinstance(celsius,(float,int,str)):
+            raise ValueError("Invalid value!")
+        if celsius!=float(celsius):
+            raise ValueError("Invalid value!")
+        return f"float((1.8*celsius)+32) F"
+    @ staticmethod
+    def f_to_c(fahrenheit):
+        if not isinstance(fahrenheit,(float,int,str)):
+            raise ValueError("Invalid value!")
+        if fahrenheit!=float(fahrenheit):
+            raise ValueError("Invalid value!")
+        return f"float((5/9)*(fahrenheit-32)) C"
+try:
+    print(Temperature.c_to_f("25"))
+except ValueError as e:
+    print("Error: ",e)
 
 # Level 2
   # 3. Email Utitlity
