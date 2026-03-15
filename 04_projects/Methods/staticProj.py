@@ -60,20 +60,32 @@ print(Expense.validate_amount("abc"))
 class Temperature:
     @staticmethod
     def c_to_f(celsius):
-        if not isinstance(celsius,(float,int,str)):
+        if not isinstance(celsius,(int,float,str)):
             raise ValueError("Invalid value!")
-        if celsius!=float(celsius):
+        try:
+            celsius=float(celsius)
+        except ValueError:
             raise ValueError("Invalid value!")
-        return f"float((1.8*celsius)+32) F"
+        return f"{float(celsius)}F -> {float((1.8*celsius)+32)}F"
     @ staticmethod
     def f_to_c(fahrenheit):
-        if not isinstance(fahrenheit,(float,int,str)):
+        if not isinstance(fahrenheit,(int,float,str)):
             raise ValueError("Invalid value!")
-        if fahrenheit!=float(fahrenheit):
+        try:
+            fahrenheit=float(fahrenheit)
+        except ValueError:
             raise ValueError("Invalid value!")
-        return f"float((5/9)*(fahrenheit-32)) C"
+        return f"{float(fahrenheit)}F -> {float((5/9)*(fahrenheit-32)):.2f}C"
 try:
-    print(Temperature.c_to_f("25"))
+    print(Temperature.c_to_f(25))
+except ValueError as e:
+    print("Error: ",e)
+try:
+    print(Temperature.c_to_f("100"))
+except ValueError as e:
+    print("Error: ",e)
+try:
+    print(Temperature.f_to_c(25))
 except ValueError as e:
     print("Error: ",e)
 
