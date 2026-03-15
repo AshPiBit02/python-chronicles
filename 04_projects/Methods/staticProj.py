@@ -5,6 +5,53 @@
      # Static method: validate_amount(amount) -> ensures amount > 0
      # Instance: stores category, amount, date.
      # Real use: track daily spending safely.
+from datetime import date
+class Expense:
+    def __init__(self,category:str,amount:float,spent_on: date = None, note:str=None):
+        if not Expense.validate_amount(amount):
+            raise ValueError("Amount must be a positive number.")
+        """not isinstance ensures if category is a string and not category.strip() rejects strings taht are empty or only whitespace."""
+        if not isinstance(category,str) or not category.strip(): 
+            raise ValueError("Category must be a non-empty string.")
+        self.category=category.strip()
+        self.amount=float(amount)
+        self.spent_on=spent_on or date.today()
+        self.note=note
+    @staticmethod
+    def validate_amount(amount) -> bool: # -> (return type ammontation) is a type hint that indicates what type of value the functio return
+        if amount is None:
+            return False
+        if isinstance(amount,str):
+            try: 
+                amount=float(amount)
+            except ValueError:
+                return False
+        if not isinstance(amount,(int,float)):
+            return False
+        return amount > 0
+    def to_dict(self) -> dict:
+        return{
+            "category":self.category,
+            "amount":self.amount,
+            "spent_on":self.spent_on.isoformat(),
+            "note":self.note,
+        }
+    def __repr__(self):
+        return f"Expense(category={self.category!r}, amount={self.amount:.2f}, spent_on={self.spent_on}, note={self.note!r})"
+# Valid expenses
+e1=Expense("Food",12.5)
+e2=Expense("Transport","3.20",note="Bus fare")
+# Invalid amount raise
+try: 
+    Expense("Misc",0)
+except ValueError as e:
+    print("Error: ",e)
+# quick validation without creating an instance
+print(Expense.validate_amount(5))        
+print(Expense.validate_amount("0"))        
+print(Expense.validate_amount("-3.5"))        
+print(Expense.validate_amount("abc"))        
+    
   # 2. Temperature Converter
      # Class: Temperature
      # static method: c_to_f(celsius), f_to_c(fahrenheit)
