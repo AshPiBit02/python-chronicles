@@ -94,6 +94,19 @@ except ValueError as e:
      # Class: EmailHelper
      # static method: validate_email(email) -> checks format with regex, mask_email(email) -> hides part of the address of privacy.
      # Real use: safe handling of user emails.
+class EmailHelper:
+    @staticmethod
+    def validate_email(email) -> bool:
+        valid_domains=(".com",".org",".net",".edu",".gov",".np")
+        return "@" in email and email.endswith(valid_domains)
+    def mask_email(email) -> str:
+        local,domain=email.split("@")
+        masked_local="*" * len(local) # mask all characters before @
+        return f"{masked_local}@{domain}"
+print(EmailHelper.mask_email("aashishchaudahr234@gmail.com"))
+print(EmailHelper.validate_email("aashishchaudahr234@gmail.com"))
+
+
   # 4. Password Checker
      # Class: PasswordUtils
      # Staic methods: is_strong(password) -> checks length,digits,uppercase, symbols, hash_password(password) -> returns a hased version.
