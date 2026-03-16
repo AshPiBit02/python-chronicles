@@ -101,9 +101,10 @@ class EmailHelper:
         pattern=r'^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$'
         return re.match(pattern,email) is not None
     def mask_email(email) -> str:
-        local,domain=email.split("@")
-        masked_local=email[:3] + "*" * (len(local) - 3) # mask all characters before @
-        return f"{masked_local}@{domain}"
+        at_index=email.find("@")
+        visible=email[:3]
+        masked_local=visible + "*" * (at_index-3)
+        return masked_local + email[at_index:]
 print(EmailHelper.validate_email("aashishchaudahr234@gmail.com"))
 print(EmailHelper.mask_email("aashishchaudahr234@gmail.com"))
 
