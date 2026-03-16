@@ -97,12 +97,12 @@ except ValueError as e:
 import re
 class EmailHelper:
     @staticmethod
-    def validate_email(email):
+    def validate_email(email) -> bool:
         pattern=r'^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$'
         return re.match(pattern,email) is not None
     def mask_email(email) -> str:
         local,domain=email.split("@")
-        masked_local="*" * len(local) # mask all characters before @
+        masked_local=email[:3] + "*" * (len(local) - 3) # mask all characters before @
         return f"{masked_local}@{domain}"
 print(EmailHelper.validate_email("aashishchaudahr234@gmail.com"))
 print(EmailHelper.mask_email("aashishchaudahr234@gmail.com"))
