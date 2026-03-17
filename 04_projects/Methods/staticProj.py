@@ -113,6 +113,25 @@ print(EmailHelper.mask_email("aashishchaudahr234@gmail.com"))
      # Class: PasswordUtils
      # Staic methods: is_strong(password) -> checks length,digits,uppercase, symbols, hash_password(password) -> returns a hased version.
      # Real use: secure user authentication.
+import hashlib
+import re
+class PasswordUtils:
+    @staticmethod
+    def is_strong(password:str) -> bool:
+        if not isinstance(password,str):
+            return False
+        if len(password) < 8:
+            return False
+        if not re.search(r"[A-Z]",password):
+            return False
+        if not re.search(r"[a-z]",password):
+            return False
+        if not re.search(r"\d",password):
+            return False
+        if not re.search(r"[!@#$%^&*(),.?\/.:{}|<>]",password):
+            return False
+        return False
+        
 
 # Level 3
   # 5. File Utility
