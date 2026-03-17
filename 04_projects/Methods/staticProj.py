@@ -131,6 +131,11 @@ class PasswordUtils:
         if not re.search(r"[!@#$%^&*(),.?\/.:{}|<>]",password):
             return False
         return False
+    @staticmethod
+    def hash_password(password:str) -> str:
+        if not isinstance(password,str):
+            raise ValueError("Password must be a string.")
+        return hashlib.sha256(password.encode("utf-8")).hexdigest()
     
         
 
