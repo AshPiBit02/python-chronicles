@@ -126,11 +126,12 @@ class PasswordUtils:
             return False
         if not re.search(r"[a-z]",password):
             return False
-        if not re.search(r"\d",password):
+        if not re.search(r"\d",password): # checks if password contains at least one digit
             return False
         if not re.search(r"[!@#$%^&*(),.?\/.:{}|<>]",password):
             return False
         return False
+    
         
 
 # Level 3
