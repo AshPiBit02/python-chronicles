@@ -135,7 +135,15 @@ class PasswordUtils:
     def hash_password(password:str) -> str:
         if not isinstance(password,str):
             raise ValueError("Password must be a string.")
+        """.hexdigest return a human-readable string of hex characters"""
         return hashlib.sha256(password.encode("utf-8")).hexdigest()
+print(PasswordUtils.is_strong("abc"))
+print(PasswordUtils.is_strong("Abc123&!tr"))
+hashed=PasswordUtils.hash_password("Abc123&3,s")
+try:
+    print(hashed)
+except ValueError as e:
+    print("Error: ",e)
     
         
 
