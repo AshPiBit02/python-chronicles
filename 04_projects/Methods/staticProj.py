@@ -130,7 +130,7 @@ class PasswordUtils:
             return False
         if not re.search(r"[!@#$%^&*(),.?\/.:{}|<>]",password):
             return False
-        return False
+        return True
     @staticmethod
     def hash_password(password:str) -> str:
         if not isinstance(password,str):
