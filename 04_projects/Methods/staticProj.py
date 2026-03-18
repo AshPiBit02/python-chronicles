@@ -152,6 +152,25 @@ except ValueError as e:
      # Class: FileUtils
      # Static methods: get_extension(filename), is_valid_filename(filename)
      # Real use: validate and process uploaded files.
+import os
+import re
+class FileUtils:
+    @staticmethod
+    def get_extension(filename:str) -> str:
+        """
+        Return the file extension without the dot.
+        Example: example.json -> json
+        """
+        if not isinstance(filename,str) or not filename.strip(): # if filename.strip() is empty python treats it as False
+            raise ValueError("File name must be a non-empty string.")
+        unnessary, ext=os.path.splitext(filename)
+        return ext[1:] if ext else ""
+    """
+    os.path.splitext(filename) -> splits a filename into two parts(part before dot & after including dot)
+    _ is a throwaway variable -> it captures the root part but we don't need it.
+    """
+    
+        
   # 6. Math Helper
      # Class: MathUtils
      # Static Methods: is_prime(n), factorial(n)
