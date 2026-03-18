@@ -258,10 +258,40 @@ class GradeUtils:
 print(GradeUtils.validate_grade("A"))         
 print(GradeUtils.calculate_gpa("A"))         
 print(GradeUtils.calculate_gpa("D"))         
-print(GradeUtils.calculate_gpa("M"))         
-print(GradeUtils.validate_grade("k"))
+# print(GradeUtils.calculate_gpa("M"))         
+# print(GradeUtils.validate_grade("k"))
+
   #  7. Inventory Utility
      # Class: InventoryUtils
-     # Static method: validate_sku(sku) -> check SKU Format, calculate_discount(price,percent) -> reutrn discounted price.
+     # Static method: validate_sku(sku) -> check SKU Format, calculate_discount(price,percent) -> return discounted price.
      # Real use: manage shop inventory.
-            
+"""Stoke Keeping Unit"""
+print('*'*100)
+import re
+class InventoryUtils:
+    @staticmethod
+    def validate_sku(sku:str) -> bool:
+        """
+        Validate SKU format.
+        Example rule:
+             - must be alphanumeric
+             - length between 5 and 12 characters
+        """
+        if not isinstance(sku,str):
+            return False
+        pattern=r"^[A-Z0-9]{5,12}" # only uppercase letter & digits
+        return bool(re.match(pattern,sku))
+    @staticmethod
+    def calculate_discount(price:float,percent:float) -> float:
+        if not isinstance(price,(int,float)) or not isinstance(percent,(int,float)):
+            raise ValueError("Price and percent must be numbers.")
+        if price < 0 or percent < 0 or percent > 100:
+            raise ValueError("Invalid values for price or percent.")
+        discount=(percent/100)*price
+        return round(price-discount,2)
+print(InventoryUtils.validate_sku("AJD21"))
+print(InventoryUtils.validate_sku("AJ21aaaaa"))
+print(InventoryUtils.validate_sku("AJD21B"))
+
+print(InventoryUtils.calculate_discount(100,27.23))
+print(InventoryUtils.calculate_discount(513,27.23))
