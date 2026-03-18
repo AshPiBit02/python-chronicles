@@ -191,14 +191,44 @@ print(FileUtils.get_extension("noext"))          # ""
 print(FileUtils.is_valid_filename("report.txt")) # True
 print(FileUtils.is_valid_filename("bad|name.txt")) # False
 print(FileUtils.is_valid_filename("noext"))    
-            
-
-    
-        
+                  
   # 6. Math Helper
      # Class: MathUtils
      # Static Methods: is_prime(n), factorial(n)
      # Real use: reusable math utilities in apps.
+print('-'*50)
+class MathUtils:
+    @staticmethod
+    def is_prime(num:int) -> bool:
+        if not isinstance(num,int) or num < 2:
+            return False
+        if num==2:
+            return True
+        if num%2==0:
+            return False
+        for i in range(3,int(num**0.5)+1,2):
+            if num%i==0:
+                return False
+        return True
+    @staticmethod
+    def factorial(n) -> int:
+        if not isinstance(n,int) or n<0:
+            raise ValueError("Factorial is only defined for non-negative integers.")
+        if n==0 or n==1:
+            return 1
+        fact = 1
+        for i in range(1,n+1):
+            fact*=i
+        return fact
+print(MathUtils.is_prime(2))
+print(MathUtils.is_prime(3))
+print(MathUtils.is_prime(9))
+print(MathUtils.is_prime(16))
+print(MathUtils.factorial(5))
+print(MathUtils.factorial(6))
+print(MathUtils.factorial(0))
+print(MathUtils.factorial(-8))
+
 
 # Project Level 
   # 6. Student Grade Utility 
