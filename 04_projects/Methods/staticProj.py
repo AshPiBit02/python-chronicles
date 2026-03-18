@@ -152,6 +152,7 @@ except ValueError as e:
      # Class: FileUtils
      # Static methods: get_extension(filename), is_valid_filename(filename)
      # Real use: validate and process uploaded files.
+print('-'*40)
 import os
 import re
 class FileUtils:
@@ -163,12 +164,35 @@ class FileUtils:
         """
         if not isinstance(filename,str) or not filename.strip(): # if filename.strip() is empty python treats it as False
             raise ValueError("File name must be a non-empty string.")
-        unnessary, ext=os.path.splitext(filename)
+        _, ext=os.path.splitext(filename)
         return ext[1:] if ext else ""
     """
     os.path.splitext(filename) -> splits a filename into two parts(part before dot & after including dot)
-    _ is a throwaway variable -> it captures the root part but we don't need it.
+    _ is a throwaway variable -> it captures the root part but we don't need it.(we can define any varible that place of _)
+    return ext[1:] if ext else "" -> returns the part after dot if ext contain second part else it returns empty string.
     """
+    @staticmethod
+    def is_valid_filename(filename:str) -> bool:
+        if not isinstance(filename,str) or not filename.strip():
+            return False
+        forbidden=r'[\\/:*?"<>|]'
+        if re.search(forbidden,filename):
+            return False
+        if not FileUtils.get_extension(filename):
+            return False
+        return True
+try:
+    print(FileUtils.get_extension(""))
+except ValueError as e:
+    print("Error: ",e)
+print(FileUtils.get_extension("report.pdf"))     # pdf
+print(FileUtils.get_extension("archive.tar.json")) # gz
+print(FileUtils.get_extension("noext"))          # ""
+print(FileUtils.is_valid_filename("report.txt")) # True
+print(FileUtils.is_valid_filename("bad|name.txt")) # False
+print(FileUtils.is_valid_filename("noext"))    
+            
+
     
         
   # 6. Math Helper
