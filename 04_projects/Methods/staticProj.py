@@ -199,7 +199,7 @@ print(FileUtils.is_valid_filename("noext"))
 print('-'*50)
 class MathUtils:
     @staticmethod
-    def is_prime(num:int) -> bool:
+    def is_prime(num) -> bool:
         if not isinstance(num,int) or num < 2:
             return False
         if num==2:
@@ -227,13 +227,39 @@ print(MathUtils.is_prime(16))
 print(MathUtils.factorial(5))
 print(MathUtils.factorial(6))
 print(MathUtils.factorial(0))
-print(MathUtils.factorial(-8))
+print(MathUtils.factorial(8))
+try:
+    print(MathUtils.is_prime(2.5))
+except ValueError as e:
+    print(e)
 
 
 # Project Level 
   # 6. Student Grade Utility 
      # Class: GradeUtils
-     # Static methods: calculate_gpa(grades), validate_grade(grade) -> ensure grade is valid(A-F)
+     # Static methods: calculate_gpa(grade), validate_grade(grade) -> ensure grade is valid(A-F)
+print('-'*50)
+import re
+class GradeUtils:
+    @staticmethod
+    def validate_grade(grade) -> bool:
+        if not isinstance(grade,str):
+            raise ValueError("Grade must be a string")
+        valid_grades=r'[ABCDEF]'
+        if re.search(valid_grades,grade):
+            return True
+        return False
+    @staticmethod 
+    def calculate_gpa(grade) -> float:
+        if not GradeUtils.validate_grade(grade):
+            raise ValueError("Invalid grade")
+        my_dict={"A":4.00,"B":3.20,"C":2.60,"D":2.10,"E":1.50,"F":0.00}
+        return my_dict[grade]
+print(GradeUtils.validate_grade("A"))         
+print(GradeUtils.calculate_gpa("A"))         
+print(GradeUtils.calculate_gpa("D"))         
+print(GradeUtils.calculate_gpa("M"))         
+print(GradeUtils.validate_grade("k"))
   #  7. Inventory Utility
      # Class: InventoryUtils
      # Static method: validate_sku(sku) -> check SKU Format, calculate_discount(price,percent) -> reutrn discounted price.
