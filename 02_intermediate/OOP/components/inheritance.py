@@ -39,3 +39,18 @@ class Car(Vehicle):
         self.model=model
 car=Car("Toyota","Corolla")
 print(car.brand,car.model)
+
+"""Multilevel Inheritance"""
+class LivingBeing:
+    def breadthe(self):
+        print("Breathing....")
+class Animal(LivingBeing):
+    def move(self):
+        print("Moving...")
+class Bird(Animal):
+    def fly(self):
+        print("Flying...")
+sparrow=Bird()
+sparrow.breadthe()
+sparrow.move()
+sparrow.fly()
