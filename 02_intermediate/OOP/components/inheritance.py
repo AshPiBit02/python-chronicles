@@ -54,3 +54,16 @@ sparrow=Bird()
 sparrow.breadthe()
 sparrow.move()
 sparrow.fly()
+
+"""Multiple Inheritance"""
+class Flyer:
+    def fly(self):
+        print("Flying high!")
+class Swimmer:
+    def swim(self):
+        print("Swimming fast!")
+class Duck(Flyer,Swimmer):
+    pass
+duck=Duck()
+duck.fly()
+duck.swim()
