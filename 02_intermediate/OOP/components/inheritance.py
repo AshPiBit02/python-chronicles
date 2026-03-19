@@ -17,3 +17,15 @@
       # Multiple inhertance -> a class inherits from more than one parent.
       # Hierarchical inheritance -> multiple children iherit from the same parent.
       # Multilevel inheritance -> a child inherits from a parent, which itself is a child of another class.
+  # Examples
+"""Single Inheritance"""
+class Animal:
+    def speak(self):
+        print("This animal makes a sound.")
+class Dog(Animal):
+    def speak(self): # overriding
+        print("Woof! Woof!")
+dog=Dog()
+dog.speak()
+An=Animal()
+Animal().speak()
