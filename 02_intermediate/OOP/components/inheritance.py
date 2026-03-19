@@ -25,7 +25,17 @@ class Animal:
 class Dog(Animal):
     def speak(self): # overriding
         print("Woof! Woof!")
+Animal().speak()
 dog=Dog()
 dog.speak()
-An=Animal()
-Animal().speak()
+
+""""Using super()"""
+class Vehicle:
+    def __init__(self,brand):
+        self.brand=brand
+class Car(Vehicle):
+    def __init__(self,brand,model):
+        super().__init__(brand) # call parent constructor
+        self.model=model
+car=Car("Toyota","Corolla")
+print(car.brand,car.model)
