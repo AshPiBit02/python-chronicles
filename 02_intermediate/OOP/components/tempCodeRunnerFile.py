@@ -1,4 +1,4 @@
-class Pen:
+# class Pen:
 #     def __init__(self,color="Black",ink_level=3):
 #         self.color=color
 #         self.ink_level=ink_level
@@ -17,5 +17,4 @@ class Pen:
 # p.write()
 # p.write()
 # p.refill(2)
-# p.write()
 # p.write()
