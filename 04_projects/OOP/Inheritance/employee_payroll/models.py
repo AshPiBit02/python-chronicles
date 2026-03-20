@@ -6,7 +6,7 @@ class Employee:
         """Defualt salary calculation"""
         return self.base_salary
     def __str__(self):
-        return f"{self.name} earns {self.calculate_salary()}$ per month"
+        return f"{self.name} earns {float(self.calculate_salary()):.2f}$ per month"
 class FullTimeEmployee(Employee):
     def __init__(self,name,base_salary,bonus=0):
         super().__init__(name,base_salary)
