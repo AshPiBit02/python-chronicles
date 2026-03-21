@@ -13,6 +13,9 @@ class Account:
         if self.__balance < amount:
             raise ValueError("Insufficient Balance!")
         self.__balance-=amount
+    def get_balance(self):
+        print('-'*40)
+        print(f"Account no: {self.account_number}\n Balance: {self.__balance} $")
 
         
 
