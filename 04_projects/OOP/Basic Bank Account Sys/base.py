@@ -18,7 +18,10 @@ class Account:
 class SavingAccount(Account):
     def __init__(self,account_holder,account_number,balance,interest_rate):
         super.__init__(account_holder,account_number,balance)
+        if not isinstance(self.interest_rate,(int,float)) or self.interest_rate < 0 :
+            raise ValueError("Invalid Interest Rate!")
         self.interest_rate=interest_rate
+
     def apply_interest(self):
         balance=self.get_balance()
         interest_amt=(self.interest_rate/100)*balance
