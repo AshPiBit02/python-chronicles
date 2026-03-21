@@ -14,8 +14,16 @@ class Account:
             raise ValueError("Insufficient Balance!")
         self.__balance-=amount
     def get_balance(self):
-        print('-'*40)
-        print(f"Account no: {self.account_number}\n Balance: {self.__balance} $")
+        return self.__balance
+class SavingAccount(Account):
+    def __init__(self,account_holder,account_number,balance,interest_rate):
+        super.__init__(account_holder,account_number,balance)
+        self.interest_rate=interest_rate
+    def apply_interest(self):
+        balance=self.get_balance()
+        interest_amt=(self.interest_rate/100)*balance
+        self.deposit(interest_amt)
+
 
         
 
