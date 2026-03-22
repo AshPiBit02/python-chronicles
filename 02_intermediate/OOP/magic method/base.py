@@ -42,3 +42,49 @@
 22. __call__ 
 """
 
+class MagicDemo:
+    def __init__(self,name,values): # initialization
+        self.name=name
+        self.values=list(values)
+    def __del__(self): # cleanup message(runs when object is deleted)
+        print(f"{self.name} object is being destroyed")
+    
+    # Representation
+    def __str__(self):
+        return f"MagicDemo({self.name}) with values {self.values}"
+    def __repr__(self):
+        return f"MagicDemo(name={self.name!r},values={self.values!r})" # !r -> keep values inside single quote
+    
+    # Comparison
+    def __eq__(self,other):
+        return sum(self.values)==sum(other.values)
+    def __ne__(self,other):
+        return sum(self.values)!=sum(other.values)
+    def __lt__(self,other):
+        return sum(self.values)<sum(other.values)
+    def __gt__(self,other):
+        return sum(self.values)>sum(other.values)
+    def __le__(self,other):
+        return sum(self.values)<=sum(other.values)
+    def __ge__(self,other):
+        return sum(self.values)>=sum(other.values)
+    
+    # Arithemtic(operator overloading)
+    def __add__(self,other):
+        return MagicDemo(self.name + "+" + other.name,self.values + other.values)
+    def __sub__(self,other):
+        return MagicDemo(self.name - "-" - other.name,self.values - other.values)
+
+
+a=MagicDemo("adf",[1,3,6])
+b=MagicDemo("acd",[2,6])
+c=a-b
+print(c)
+# print(a>b)
+# c=a+b
+# print(c)
+# print(a>=b)
+# m=MagicDemo("fasd",[3,3,6,7])
+# print(repr(m))
+    
+
