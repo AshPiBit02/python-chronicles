@@ -43,7 +43,7 @@ class CurrentAccount(Account):
         if current < amount:
             self.overdraft_limit=(current+self.overdraft_limit)-amount # deduct the amount used from overdraft
         self._balance-=amount
-    def __str__(self):
+    def __repr__(self):
         return f"Account Holder: {self.account_holder}\nAccount Number: {self.account_number}\n Current: {self.get_balance()}\nOverdraft Limit: {self.overdraft_limit}"
 
 

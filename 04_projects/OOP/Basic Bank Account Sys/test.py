@@ -1,5 +1,5 @@
 from base import Account,SavingAccount,CurrentAccount
-sa=SavingAccount("Aashish",121444490001,55000,5.7)
+sa=SavingAccount("Aashish",121444490001,55000,interest_rate=5.7)
 try:
     sa.withdraw(5000)
 except ValueError as e:
