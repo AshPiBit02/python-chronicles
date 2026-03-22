@@ -2,7 +2,7 @@ class Account:
     def __init__(self,account_holder,account_number,balance):
         self.account_holder=account_holder
         self.account_number=account_number
-        self.__balance=balance
+        self._balance=balance
     def deposit(self,amount):
         if not isinstance(amount,(int,float)) or (amount <= 0):
             raise ValueError("Invalid Amount!")
@@ -10,15 +10,17 @@ class Account:
     def withdraw(self,amount):
         if not isinstance(amount,(int,float)) or amount <= 0:
             raise ValueError("Invlaid Amount!")
-        if self.__balance < amount:
+        if self._balance < amount:
             raise ValueError("Insufficient Balance!")
-        self.__balance-=amount
+        self._balance-=amount
     def get_balance(self):
-        return self.__balance
+        return self._balance
+    def __str__(self):
+        return f"Account Holder: {self.account_holder}\nAccount Number: {self.account_number}\n Current: {self.__balance}"
 class SavingAccount(Account):
     def __init__(self,account_holder,account_number,balance,interest_rate):
         super().__init__(account_holder,account_number,balance)
-        if not isinstance(interest_rate,(int,float)) or self.interest_rate < 0 :
+        if not isinstance(interest_rate,(int,float)) or interest_rate < 0 :
             raise ValueError("Invalid Interest Rate!")
         self.interest_rate=interest_rate
 
@@ -26,6 +28,8 @@ class SavingAccount(Account):
         balance=self.get_balance()
         interest_amt=(self.interest_rate/100)*balance
         self.deposit(interest_amt)
+    def __str__(self):
+        return f"Account Holder: {self.account_holder}\nAccount Number: {self.account_number}\n Current: {self.get_balance()}\nInterest Rate: {self.interest_rate}"
 class CurrentAccount(Account):
     def __init__(self,account_holder,account_number,balance,overdraft_limit=0.0):
         super().__init__(account_holder,account_number,balance)
@@ -36,8 +40,9 @@ class CurrentAccount(Account):
         current=self.get_balance()
         if amount > current + self.overdraft_limit:
             raise ValueError("Exceeds overdraft limit!")
-        self.__balance-=amount
-      
+        self._balance-=amount
+    def __str__(self):
+        return f"Account Holder: {self.account_holder}\nAccount Number: {self.account_number}\n Current: {self.get_balance()}\nOverdraft Limit: {self.overdraft_limit}"
 
 
 
