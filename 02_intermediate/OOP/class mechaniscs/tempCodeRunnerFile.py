@@ -1,3 +1,2 @@
-5050)
-# mw=manual_Wallet(500)
-# mw=manual_Wallet(-500)
+
+        return f"BankAccount(Owner: {self.owner}  Balance: {
