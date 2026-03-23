@@ -84,8 +84,23 @@ class MagicDemo:
         for i,j in zip(self.values,other.values):
             new_list.append(round(i/j,2)) # round() -> rounds values
         return MagicDemo(self.name + "/" + other.name,new_list)
+    
+    # Container behavior
+    def __len__(self):
+        return len(self.values)
+    def __getitem__(self,index):
+        return self.values[index]
+    def __setitem__(self,index,value):
+        self.values[index]=value
+    def __contains__(self, item):
+        return item in self.values
+
+
 a=MagicDemo("adf",[1,3,6])
 b=MagicDemo("acd",[3,2,6])
+a[2]=40
+print(a[2])
+print(len(a))
 c=a/b
 print(c)
 # print(a>b)
