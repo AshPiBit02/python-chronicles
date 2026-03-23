@@ -113,21 +113,38 @@ class MagicDemo:
 
 a=MagicDemo("adf",[1,3,6])
 b=MagicDemo("acd",[3,2,6])
-for n in a:
+
+# __next__
+for n in a: 
     print(n)
-print(a(2))
+
+# __iter__
 for val in a:
     print(val)
+
+# __setitem__
 a[2]=40
+
+# __getitem__
 print(a[2])
+
+# __len__
 print(len(a))
+
+# operator overloading
 c=a/b
 print(c)
-# print(a>b)
-# c=a+b
-# print(c)
-# print(a>=b)
-# m=MagicDemo("fasd",[3,3,6,7])
-# print(repr(m))
+
+# comparator
+print(a>b)
+print(a>=b)
+
+m=MagicDemo("fasd",[3,3,6,7])
+
+# __repr__
+print(repr(m))
+
+# __str__
+print(m)
     
 
