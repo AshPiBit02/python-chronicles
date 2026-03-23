@@ -1,0 +1,21 @@
+2026-03-23T15:15:47.748190 | Action: Balance Inqiry | Owner: Corporate1
+2026-03-23T15:15:47.748190 | Action: Deposit | Amount: 500$ | Owner: Corporate1
+2026-03-23T15:15:47.748190 | Action: Withdraw | Amount: 750$ | Owner: Corporate1
+2026-03-23T15:16:30.680301 | Action: Balance Inqiry | Owner: Corporate1
+2026-03-23T15:16:30.680301 | Action: Deposit | Amount: 500$ | Owner: Corporate1
+2026-03-23T15:16:30.680301 | Action: Withdraw | Amount: 750$ | Owner: Corporate1
+2026-03-23T15:18:01 | Action: Balance Inqiry | Owner: Corporate1
+2026-03-23T15:18:01 | Action: Deposit | Amount: 500$ | Owner: Corporate1
+2026-03-23T15:18:01 | Action: Withdraw | Amount: 750$ | Owner: Corporate1
+2026-03-23T15:18:01 | Action: Balance Inqiry | Owner: Corporate1
+2026-03-23T15:18:01 | Action: Deposit | Amount: 500$ | Owner: Corporate1
+2026-03-23T15:18:01 | Action: Withdraw | Amount: 750$ | Owner: Corporate1
+2026-03-23T15:18:02 | Action: Balance Inqiry | Owner: Corporate1
+2026-03-23T15:18:02 | Action: Deposit | Amount: 500$ | Owner: Corporate1
+2026-03-23T15:18:02 | Action: Withdraw | Amount: 750$ | Owner: Corporate1
+2026-03-23T15:18:02 | Action: Balance Inqiry | Owner: Corporate1
+2026-03-23T15:18:02 | Action: Deposit | Amount: 500$ | Owner: Corporate1
+2026-03-23T15:18:02 | Action: Withdraw | Amount: 750$ | Owner: Corporate1
+2026-03-23T15:18:02 | Action: Balance Inqiry | Owner: Corporate1
+2026-03-23T15:18:02 | Action: Deposit | Amount: 500$ | Owner: Corporate1
+2026-03-23T15:18:02 | Action: Withdraw | Amount: 750$ | Owner: Corporate1
