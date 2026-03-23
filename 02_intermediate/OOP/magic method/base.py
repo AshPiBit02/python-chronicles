@@ -94,10 +94,30 @@ class MagicDemo:
         self.values[index]=value
     def __contains__(self, item):
         return item in self.values
+    
+    # Iteration
+    def __iter__(self): # returns the iterator object
+        return iter(self.values)
+    def __next__(self):  # fetches one element at a time from the list
+        if self.index >= len(self.values):
+            raise StopIteration
+        value=self.values[self.index]
+        self.index+=1
+        return value
+    
+    # Collable
+    def __call__(self,multiplier):
+        return [v * multiplier for v in self.values]
+    
 
 
 a=MagicDemo("adf",[1,3,6])
 b=MagicDemo("acd",[3,2,6])
+for n in a:
+    print(n)
+print(a(2))
+for val in a:
+    print(val)
 a[2]=40
 print(a[2])
 print(len(a))
