@@ -38,14 +38,14 @@ print(f"{ab.__dict__}\n{mw.__dict__}")
 print('-'*40)
 """"With descriptor(reusable logic)"""
 class PositiveValue:
-    def __set_name__(self,owner,name): # owner -> class(BankAccount/Wallet), name -> attribute(balance/amount)
-        self.name=name
-    def __get__(self,inst,owner):
-        return inst.__dict__.get(self.name,0) # zero is default
+    def __set_name__(self,cls,attr): # owner -> class(BankAccount/Wallet), name -> attribute(balance/amount)
+        self.attr=attr
+    def __get__(self,inst,cls):
+        return inst.__dict__.get(self.attr,0) # zero is default
     def __set__(self,inst,val):
         if val < 0:
             raise ValueError("Entered value must be positive!")
-        inst.__dict__[self.name]=val
+        inst.__dict__[self.attr]=val
 class BankAccount:
     balance=PositiveValue()
     def __init__(self,balance=0):
@@ -64,4 +64,5 @@ ww.amount=222
 print(ww.amount)
 print(ww.__dict__)
 # ww.amount=-2 -> raises error
+print(ww)
 
