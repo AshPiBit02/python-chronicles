@@ -76,14 +76,17 @@ class MagicDemo:
         return MagicDemo(self.name + "-" + other.name,[sum(self.values) - sum(other.values)])
     def __mul__(self,other):
         new_list=[]
-        for i,j in zip(self.values,other.values):
+        for i,j in zip(self.values,other.values): # zip() paris elements from two lists
             new_list.append(i*j)
         return MagicDemo(self.name + "*" + other.name,new_list)
-
-
+    def __truediv__(self, other):
+        new_list=[]
+        for i,j in zip(self.values,other.values):
+            new_list.append(round(i/j,2)) # round() -> rounds values
+        return MagicDemo(self.name + "/" + other.name,new_list)
 a=MagicDemo("adf",[1,3,6])
 b=MagicDemo("acd",[3,2,6])
-c=a*b
+c=a/b
 print(c)
 # print(a>b)
 # c=a+b
