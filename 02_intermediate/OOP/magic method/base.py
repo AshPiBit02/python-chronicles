@@ -73,12 +73,17 @@ class MagicDemo:
     def __add__(self,other):
         return MagicDemo(self.name + "+" + other.name,self.values + other.values)
     def __sub__(self,other):
-        return MagicDemo(self.name - "-" - other.name,self.values - other.values)
+        return MagicDemo(self.name + "-" + other.name,[sum(self.values) - sum(other.values)])
+    def __mul__(self,other):
+        new_list=[]
+        for i,j in zip(self.values,other.values):
+            new_list.append(i*j)
+        return MagicDemo(self.name + "*" + other.name,new_list)
 
 
 a=MagicDemo("adf",[1,3,6])
-b=MagicDemo("acd",[2,6])
-c=a-b
+b=MagicDemo("acd",[3,2,6])
+c=a*b
 print(c)
 # print(a>b)
 # c=a+b
