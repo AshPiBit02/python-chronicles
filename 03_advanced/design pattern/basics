@@ -1,0 +1,59 @@
+A design pattern is a proven, reusable solution to a recurring problem in software design. It's not code itself but a conceptual template.
+In Python, Patterns adapt to Python's dynamic and flexible nature, often requirigin less boilerplate compared to languagues like java or C++.
+
+Why it is used: 
+    Consistency -> Provide a common vocabulary among developers.
+    Efficiency -> Save time by reusing established solutions instead of reinventing the wheel.
+    Maintainability -> Make systems easier to extend and refactor.
+    Scalability -> Help manage complexity in large projects.
+    Best Practice -> Encourage clean architecture and separation of concerns.
+
+Intent:
+    Object Creation Issues -> Avoid tight coupling when instantiating classes(e.g. Factory, Singleton)
+    Structural Complexity -> Organize relationships between classes and objects(e.g. Adapter, Composite).
+    Behavioral Challenges -> Manage communication and responsibility between objects(e.g. Observer, Strategy)
+
+Where it is used:
+    Enterprise Application -> Large-scale systems requiring modularity and scalability.
+    Frameworks & Libraries -> Django, Flask, and other Python frameworks internally use patterns.
+    Game Development -> For managing states, events, and object lifecycles.
+    Data Science & ML Piplines -> Strategy patterns for model selection, Observer for event-driven updates.
+    Local Projects -> Even small shop management systems benefit from patterns like Singleton(for database connections) or
+                      Observer(for notifications)
+                
+Design Patterns are grouped into three main categories:
+  1. Creational (Object creation mechanisms)
+     i. Singleton
+     ii. Factory
+     iii. Builder
+     iv. Prototype
+  2. Structural (Composition and orignization of classes/objects)
+     i. Adapter
+     ii. Decorator
+     iii. Composite
+     iv. Proxy
+  3. Behavioral(Communcation and responsibility between objects)
+     i. Observer
+     ii. Strategy
+     iii. Command
+     iv. State
+
+Essentail Principles Behind Design Patterns:
+    1. DRY(Don't Repeat Yourself)
+       -> Avoid duplicate logic
+    2. KISS(Keep It Simple, Stupid)
+       -> Avoid unnessary complexity
+    3. SOLID Principles
+        S -> Single Responsibility Principle(one class -> one job)
+        O -> Open/Closed Principle(Open for extension, closed fro modification)
+        L -> Liskov Substitution Principle(Child class should replace parent safely)
+        I -> Interface Segregation(many small interfaces -> one big interface)
+        D -> Dependency Inversion(Depend on abstractions, not concrete classes)
+
+Key Components of Any Design Pattern
+1. Intent -> What problem it solves.
+2. Stucture -> How classes/objects are arranged.
+3. Participants -> Classes/objects involved.
+4. Collaboration -> How they interact
+5. Consequences -> Pros and Cons
+    
