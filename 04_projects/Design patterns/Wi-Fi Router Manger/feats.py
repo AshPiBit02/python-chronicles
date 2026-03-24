@@ -17,12 +17,15 @@ class Router:
         print(f"Device {device_name} connected to SSID {self.ssid}")
     
     def show_connected_devices(self):
+        print('-'*40)
         print(f"Devices connected to {self.ssid}:")
         i=1
         for item in self.list:
             line=f"{i}. {item}"
             print(f"{' '*25}{line}")
             i+=1
+        print('-'*40)
+
         
     def change_ssid(self):
         new_ssid=str(input("Enter new SSID: "))
@@ -31,8 +34,19 @@ class Router:
             raise ValueError("Incorrect password! SSID change failed")
         self.ssid=new_ssid
         print("SSID Changed successfully")
+    
+    def update_password(self):
+        old_password=str(input("Enter old password: "))
+        if old_password != self.password:
+            raise ValueError("Incorrect password! Password update failed")
+        new_password=str(input("Enter new password: "))
+        confirm_password=str(input("Enter confirm password: "))
+        if new_password != confirm_password:
+            raise ValueError("Passwords didn't match!")
+        self.update_password=new_password
+        print("Password updated successfully..")
 
-
+router1=Router("FiberNet","Nepal123")
 
 
 

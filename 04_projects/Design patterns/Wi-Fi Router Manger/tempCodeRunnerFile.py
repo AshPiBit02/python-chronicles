@@ -1,3 +1,4 @@
-elf.list:
-            print(f"Device {device_name} is already connected to SSID {self.ssid}")
-            return
+try:
+    router1.change_ssid()
+except ValueError as e:
+    print("Error: ",e)
