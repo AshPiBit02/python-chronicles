@@ -23,10 +23,16 @@ class Router:
             line=f"{i}. {item}"
             print(f"{' '*25}{line}")
             i+=1
-router1=Router("FiberNet","Nep@L57")
-router1.connect_device("Honor 300 Lite")
-router1.connect_device("Samsung S23 Ultra")
-router1.connect_device("Iphone 17 Pro")
-router1.connect_device("Iphone 17 Pro")
-router1.connect_device("ZenBook 14")
-router1.show_connected_devices()
+        
+    def change_ssid(self):
+        new_ssid=str(input("Enter new SSID: "))
+        pass_word=str(input("Enter password to change SSID: "))
+        if pass_word !=self.password:
+            raise ValueError("Incorrect password! SSID change failed")
+        self.ssid=new_ssid
+        print("SSID Changed successfully")
+
+
+
+
+
