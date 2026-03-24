@@ -13,6 +13,9 @@ class Router:
         if device_name in self.list:
             print(f"Device {device_name} is already connected to SSID {self.ssid}")
             return
+        conn_password=str(input("Enter password: "))
+        if conn_password != self.password:
+            raise ValueError("Incorrect password! connection failed")
         self.list.append(device_name)
         print(f"Device {device_name} connected to SSID {self.ssid}")
     
