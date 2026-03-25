@@ -68,9 +68,9 @@ def client_code(factory: PreprocessingFactory,data):
 
 # Test with Text Data
 print(f"{'-'*7} Text Preprocessing {'-'*7}")
-client_code(TextPreprocessingFactory,"This is a sample stopword text")
+client_code(TextPreprocessingFactory(),"This is a sample stopword text")
 
 
 # Test with Image Data
 print(f"{'-'*7} Image Preprocessing {'-'*7}")
-# client_code(ImagePreprocessingFactory,"sample_image.png")
+client_code(ImagePreprocessingFactory(),"sample_image.png")
