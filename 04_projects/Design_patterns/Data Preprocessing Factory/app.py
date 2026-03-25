@@ -34,11 +34,11 @@ class ImageFeatureExtractor(FeatureExtractor):
 # Abstract Factories
 class PreprocessingFactory:
     def create_cleaner(self):
-        return NotImplementedError
+        raise NotImplementedError
     def create_normalizer(self):
-        return NotImplementedError
+        raise NotImplementedError
     def create_feature_extractor(self):
-        return NotImplementedError
+        raise NotImplementedError
 
 # Concrete Factories
 class TextPreprocessingFactory(PreprocessingFactory):
