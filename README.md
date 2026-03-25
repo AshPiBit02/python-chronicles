@@ -24,7 +24,7 @@ I have organized this chronicle into logical "Chapters" to track my evolution as
 - [x] *List Comprehensions:* Writing concise, readable code.
 - [x] *Error Handling:* try/except blocks and custom exceptions.
 - [x] *File I/O:* Reading/writing JSON, CSV, and Text files.
-- [ ] *OOP:* Classes, Inheritance, and Encapsulation.
+- [x] *OOP:* Classes, Inheritance, and Encapsulation.
 
 ### ⚡ Chapter 3: Advanced Alchemy
 - [ ] *Decorators & Generators:* Understanding the "Magic" of Python.
@@ -47,8 +47,8 @@ As I build larger tools, they will be highlighted here:
 
 ## 📈 Current Progress
 - *Level:* Beginner / Intermediate
-- *Focusing on:* Object-Oriented Programming (OOP)
-- *Last Updated:* February 2026
+- *Focusing on:* Design Patterns
+- *Last Updated:* March 2026
 
 ---
 
