@@ -1,0 +1,90 @@
+2026-03-25T14:34:41 | SMS | Your OTP is 1474
+2026-03-25T14:34:41 | Push | You have received 10 new messages
+2026-03-25T14:34:41 | Email | Alert! Earthquake within 5 minutes, Stay away from high structures!!!
+2026-03-25T14:34:41 | SMS | Alert! Earthquake within 5 minutes, Stay away from high structures!!!
+2026-03-25T14:34:41 | Push | Alert! Earthquake within 5 minutes, Stay away from high structures!!!
+2026-03-25T14:34:41 | Email | Offer letter from FAANG!
+2026-03-25T14:51:53 | YOUR OTP IS 1474 | NORMAL | normal
+2026-03-25T14:51:53 | YOU HAVE RECEIVED 10 NEW MESSAGES | NORMAL | urgent
+2026-03-25T14:51:53 | ALERT! EARTHQUAKE WITHIN 5 MINUTES, STAY AWAY FROM HIGH STRUCTURES!!! | NORMAL | urgent
+2026-03-25T14:51:53 | ALERT! EARTHQUAKE WITHIN 5 MINUTES, STAY AWAY FROM HIGH STRUCTURES!!! | NORMAL | urgent
+2026-03-25T14:51:53 | ALERT! EARTHQUAKE WITHIN 5 MINUTES, STAY AWAY FROM HIGH STRUCTURES!!! | NORMAL | urgent
+2026-03-25T14:51:53 | OFFER LETTER FROM FAANG! | NORMAL | normal
+2026-03-25T14:54:41 | Your otp is 1474 | normal | Normal 
+2026-03-25T14:54:41 | You have received 10 new messages | urgent | Normal 
+2026-03-25T14:54:41 | Alert! earthquake within 5 minutes, stay away from high structures!!! | urgent | Normal 
+2026-03-25T14:54:41 | Alert! earthquake within 5 minutes, stay away from high structures!!! | urgent | Normal 
+2026-03-25T14:54:41 | Alert! earthquake within 5 minutes, stay away from high structures!!! | urgent | Normal 
+2026-03-25T14:54:41 | Offer letter from faang! | normal | Normal 
+2026-03-25T15:01:43 | Your otp is 1474 | SMS | Normal 
+2026-03-25T15:01:43 | You have received 10 new messages | Push | Urgent 
+2026-03-25T15:01:43 | Alert! earthquake within 5 minutes, stay away from high structures!!! | Email | Urgent 
+2026-03-25T15:01:43 | Alert! earthquake within 5 minutes, stay away from high structures!!! | SMS | Urgent 
+2026-03-25T15:01:43 | Alert! earthquake within 5 minutes, stay away from high structures!!! | Push | Urgent 
+2026-03-25T15:01:43 | Offer letter from faang! | Email | Normal 
+2026-03-25T15:02:34 | Your otp is 1474 | SMS | Normal 
+2026-03-25T15:02:34 | You have received 10 new messages | Push | Urgent 
+2026-03-25T15:02:34 | Alert! earthquake within 5 minutes, stay away from high structures!!! | Email | Urgent 
+2026-03-25T15:02:34 | Alert! earthquake within 5 minutes, stay away from high structures!!! | SMS | Urgent 
+2026-03-25T15:02:34 | Alert! earthquake within 5 minutes, stay away from high structures!!! | Push | Urgent 
+2026-03-25T15:02:34 | Offer letter from faang! | Email | Normal 
+2026-03-25T15:02:35 | Your otp is 1474 | SMS | Normal 
+2026-03-25T15:02:35 | You have received 10 new messages | Push | Urgent 
+2026-03-25T15:02:35 | Alert! earthquake within 5 minutes, stay away from high structures!!! | Email | Urgent 
+2026-03-25T15:02:35 | Alert! earthquake within 5 minutes, stay away from high structures!!! | SMS | Urgent 
+2026-03-25T15:02:35 | Alert! earthquake within 5 minutes, stay away from high structures!!! | Push | Urgent 
+2026-03-25T15:02:35 | Offer letter from faang! | Email | Normal 
+2026-03-25T15:02:35 | Your otp is 1474 | SMS | Normal 
+2026-03-25T15:02:35 | You have received 10 new messages | Push | Urgent 
+2026-03-25T15:02:35 | Alert! earthquake within 5 minutes, stay away from high structures!!! | Email | Urgent 
+2026-03-25T15:02:35 | Alert! earthquake within 5 minutes, stay away from high structures!!! | SMS | Urgent 
+2026-03-25T15:02:35 | Alert! earthquake within 5 minutes, stay away from high structures!!! | Push | Urgent 
+2026-03-25T15:02:35 | Offer letter from faang! | Email | Normal 
+2026-03-25T15:02:35 | Your otp is 1474 | SMS | Normal 
+2026-03-25T15:02:35 | You have received 10 new messages | Push | Urgent 
+2026-03-25T15:02:35 | Alert! earthquake within 5 minutes, stay away from high structures!!! | Email | Urgent 
+2026-03-25T15:02:35 | Alert! earthquake within 5 minutes, stay away from high structures!!! | SMS | Urgent 
+2026-03-25T15:02:35 | Alert! earthquake within 5 minutes, stay away from high structures!!! | Push | Urgent 
+2026-03-25T15:02:35 | Offer letter from faang! | Email | Normal 
+2026-03-25T15:02:35 | Your otp is 1474 | SMS | Normal 
+2026-03-25T15:02:35 | You have received 10 new messages | Push | Urgent 
+2026-03-25T15:02:35 | Alert! earthquake within 5 minutes, stay away from high structures!!! | Email | Urgent 
+2026-03-25T15:02:35 | Alert! earthquake within 5 minutes, stay away from high structures!!! | SMS | Urgent 
+2026-03-25T15:02:35 | Alert! earthquake within 5 minutes, stay away from high structures!!! | Push | Urgent 
+2026-03-25T15:02:35 | Offer letter from faang! | Email | Normal 
+2026-03-25T15:02:35 | Your otp is 1474 | SMS | Normal 
+2026-03-25T15:02:35 | You have received 10 new messages | Push | Urgent 
+2026-03-25T15:02:35 | Alert! earthquake within 5 minutes, stay away from high structures!!! | Email | Urgent 
+2026-03-25T15:02:35 | Alert! earthquake within 5 minutes, stay away from high structures!!! | SMS | Urgent 
+2026-03-25T15:02:35 | Alert! earthquake within 5 minutes, stay away from high structures!!! | Push | Urgent 
+2026-03-25T15:02:35 | Offer letter from faang! | Email | Normal 
+2026-03-25T15:03:38 | Your is 1474 | SMS | Normal 
+2026-03-25T15:03:38 | You have received 10 new messages | Push | Urgent 
+2026-03-25T15:03:38 | Alert! earthquake within 5 minutes, stay away from high structures!!! | Email | Urgent 
+2026-03-25T15:03:38 | Alert! earthquake within 5 minutes, stay away from high structures!!! | SMS | Urgent 
+2026-03-25T15:03:38 | Alert! earthquake within 5 minutes, stay away from high structures!!! | Push | Urgent 
+2026-03-25T15:03:38 | Offer letter from faang! | Email | Normal 
+2026-03-25T15:04:17 | Your otp is 1474 | SMS | Normal 
+2026-03-25T15:04:17 | You have received 10 new messages | Push | Urgent 
+2026-03-25T15:04:17 | Alert! earthquake within 5 minutes, stay away from high structures!!! | Email | Urgent 
+2026-03-25T15:04:17 | Alert! earthquake within 5 minutes, stay away from high structures!!! | SMS | Urgent 
+2026-03-25T15:04:17 | Alert! earthquake within 5 minutes, stay away from high structures!!! | Push | Urgent 
+2026-03-25T15:04:17 | Offer letter from faang! | Email | Normal 
+2026-03-25T15:04:55 | Your otp is 1474 | SMS | Normal 
+2026-03-25T15:05:29 | Your otpp is 1474 | SMS | Normal 
+2026-03-25T15:13:37 | YOUR OTPP IS 1474 | SMS | NORMAL 
+2026-03-25T15:13:46 | YOUR OTP IS 1474 | SMS | NORMAL 
+2026-03-25T15:13:49 | YOUR OTP IS 1474 | SMS | NORMAL 
+2026-03-25T15:13:56 | YOUR OTP IS 1474 | SMS | NORMAL 
+2026-03-25T15:13:57 | YOUR OTP IS 1474 | SMS | NORMAL 
+2026-03-25T15:13:57 | YOUR OTP IS 1474 | SMS | NORMAL 
+2026-03-25T15:13:58 | YOUR OTP IS 1474 | SMS | NORMAL 
+2026-03-25T15:13:58 | YOUR OTP IS 1474 | SMS | NORMAL 
+2026-03-25T15:16:13 | SMS | YOUR OTP IS 1474 | NORMAL 
+2026-03-25T15:16:30 | SMS | Your OTP is 1474 | NORMAL 
+2026-03-25T15:16:56 | SMS | Your OTP is 1474 | NORMAL 
+2026-03-25T15:16:56 | PUSH | You have received 10 new messages | URGENT 
+2026-03-25T15:16:56 | EMAIL | Alert! Earthquake within 5 minutes, Stay away from high structures!!! | URGENT 
+2026-03-25T15:16:56 | SMS | Alert! Earthquake within 5 minutes, Stay away from high structures!!! | URGENT 
+2026-03-25T15:16:56 | PUSH | Alert! Earthquake within 5 minutes, Stay away from high structures!!! | URGENT 
+2026-03-25T15:16:56 | EMAIL | Offer letter from FAANG! | NORMAL 
