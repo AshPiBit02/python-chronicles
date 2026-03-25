@@ -1,0 +1,23 @@
+2026-03-25T20:17:16 | Action: Balance Inqiry | Owner: Corporate1
+2026-03-25T20:17:16 | Action: Deposit | Amount: 500$ | Owner: Corporate1
+2026-03-25T20:17:16 | Action: Withdraw | Amount: 750$ | Owner: Corporate1
+2026-03-25T20:17:16 | Action: Deposit | Amount: 1900$ | Owner: Common_man1
+2026-03-25T20:17:37 | Action: Balance Inqiry | Owner: Corporate1
+2026-03-25T20:17:37 | Action: Deposit | Amount: 500$ | Owner: Corporate1
+2026-03-25T20:17:37 | Action: Withdraw | Amount: 750$ | Owner: Corporate1
+2026-03-25T20:17:37 | Action: Deposit | Amount: 1900$ | Owner: Common_man1
+2026-03-25T20:18:06 | Action: Balance Inqiry | Owner: Corporate1
+2026-03-25T20:18:06 | Action: Deposit | Amount: 500$ | Owner: Corporate1
+2026-03-25T20:18:06 | Action: Withdraw | Amount: 750$ | Owner: Corporate1
+2026-03-25T20:18:06 | Action: Deposit | Amount: 1900$ | Owner: Common_man1
+2026-03-25T20:18:06 | Action: Balance Inqiry | Owner: Corporate1
+2026-03-25T20:18:13 | Action: Balance Inqiry | Owner: Corporate1
+2026-03-25T20:18:13 | Action: Deposit | Amount: 500$ | Owner: Corporate1
+2026-03-25T20:18:13 | Action: Withdraw | Amount: 750$ | Owner: Corporate1
+2026-03-25T20:18:13 | Action: Deposit | Amount: 1900$ | Owner: Common_man1
+2026-03-25T20:18:13 | Action: Balance Inqiry | Owner: Common_man1
+2026-03-25T20:19:12 | Action: Balance Inqiry | Owner: Corporate1
+2026-03-25T20:19:12 | Action: Deposit | Amount: 500$ | Owner: Corporate1
+2026-03-25T20:19:12 | Action: Withdraw | Amount: 750$ | Owner: Corporate1
+2026-03-25T20:19:12 | Action: Deposit | Amount: 1900$ | Owner: Common_man1
+2026-03-25T20:19:12 | Action: Balance Inqiry | Owner: Common_man1

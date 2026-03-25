@@ -37,7 +37,10 @@ class BankAccount:
                 return None
         
 ac=BankAccount("Corporate1",500)
+ac1=BankAccount("Common_man1",2000)
 print(ac)
 print(ac())
 print(ac("deposit",500))
 print(ac("withdraw",750))
+print(ac1("deposit",1900))
+print(ac1())
