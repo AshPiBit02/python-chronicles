@@ -47,3 +47,44 @@ Essential Elements:
      -> uses factory(does NOT create objects directly)
          
 """
+
+# Example
+
+# Define Product Interface
+class Vehicle:
+    def drive(self):
+        raise NotImplementedError("Subclasses must implement drive()")
+    
+# Concrete Products
+class Car(Vehicle):
+    def drive(self):
+        return "Driving a car..."
+    
+class Bike(Vehicle):
+    def drive(self):
+        return "Riding a bike.."
+
+class Truck(Vehicle):
+    def drive(self):
+        return "Driving a truck..."
+
+# Factory
+class VechicleFactory:
+    @staticmethod
+    def get_vehicle(vehicle_type):
+        if vehicle_type=="car":
+            return Car()
+        elif vehicle_type=="bike":
+            return Bike()
+        elif vehicle_type=="truck":
+            return Truck()
+        else:
+            raise ValueError("Unknown vechicle type")
+
+# Client
+factory=VechicleFactory()
+v1=factory.get_vehicle("car")
+v2=factory.get_vehicle("bike")
+
+print(v1.drive())
+print(v2.drive())
