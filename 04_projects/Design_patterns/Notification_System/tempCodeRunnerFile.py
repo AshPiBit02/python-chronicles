@@ -1,9 +1,5 @@
-tifier("sms")
-# sms.send("Your OTP is 1474")
-# push=nf.get_notifier("push")
-# push.send("You have received 10 new messages","urgent")
-# try:
-#     uk=nf.get_notifier("unknown")
-#     uk.send("unknown message")
-# except ValueError as e:
-#     print("Error: ",e)
+
+        dt_format=dt.datetime.now().replace(microsecond=0).isoformat()
+        def log(self,channel,message):
+                with open("notification_log.txt","a") as f:
+                    f.write(f"{dt.format} | {channel} | {message}\n")

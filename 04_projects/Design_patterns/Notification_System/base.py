@@ -1,3 +1,12 @@
+import datetime as dt
+class Logger:
+        @staticmethod
+        def log(message,channel,priority):
+                dt_format=dt.datetime.now().replace(microsecond=0).isoformat()
+                log_entry=f"{dt_format} | {channel.upper()} | {message} | {priority.upper()} "
+                print(f"[LOG] {log_entry}")
+                with open("notification_log.txt","a") as f:
+                    f.write(log_entry+"\n")
 class Notifier:
     def send(self,message,priority="normal"):
         raise NotImplementedError("Subclasses must implement send()")
@@ -8,7 +17,7 @@ class EmailNotifier(Notifier):
             print(f"Sending Email(Urgent): {message}")
         else:
             print(f"Sending Email: {message}")
-        log(message)
+        Logger.log(message,"Email",priority)
 
 class SMSNotifier(Notifier):
     def send(self,message,priority="normal"):
@@ -16,7 +25,7 @@ class SMSNotifier(Notifier):
             print(f"Sending SMS(Urgent): {message}")
         else:
             print(f"Sending SMS: {message}")
-        log(message)
+        Logger.log(message,"SMS",priority)
 
 class PushNotifier(Notifier):
     def send(self,message,priority="normal"):
@@ -24,12 +33,9 @@ class PushNotifier(Notifier):
             print(f"Sending Push(Urgent): {message}")
         else:
             print(f"Sending Push Notification: {message}")
-        log(message)
-def log(message):
-        with open("log.txt","a") as f:
-            f.write(f"{dt.datetime.now().replace(microsecond=0).isoformat()} | {message}\n")
+        Logger.log(message,"Push",priority)
 
-import datetime as dt
+
 class NotifierFactory:
     @staticmethod
     def get_notifier(send_through):
