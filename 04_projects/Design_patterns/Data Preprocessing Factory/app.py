@@ -16,8 +16,15 @@ class TextCleaner(Cleaner):
         print("[LOG]: TextCleaner applied stopword removal")
         return result
 class TextNormalizer(Normalizer):
+    def __init__(self,mode="lowercase"):
+        self.mode=mode
     def normalize(self, data):
-        result=f"Text normalized: {data.lower()}"
+        if self.mode=="lowercase":
+            result=f"Text normalized: {data.lower()}"
+        elif self.mode=="uppercase":
+            result=f"Text normalized: {data.upper()}"
+        else:
+            result=f"Text normalized: {data}"
         print("[LOG]: TextNormalizer applied text normalized")
         return result
 class TextFeatureExtractor(FeatureExtractor):
@@ -33,9 +40,11 @@ class ImageCleaner(Cleaner):
         print("[LOG]: ImageClearner removed noise")
         return result
 class ImageNormalizer(Normalizer):
+    def __init__(self,scale_range=(0,1)):
+        self.scale_range=scale_range
     def normalize(self, data):
         result= f"Image normalized: scaled pixels of {data}"
-        print("[LOG]: ImageNormalizer scaled pixels")
+        print(f"[LOG]: Image noramlized to range {self.scale_range} for {data}")
         return result
 class ImageFeatureExtractor(FeatureExtractor):
     def extract(self, data):
@@ -54,18 +63,22 @@ class PreprocessingFactory:
 
 # Concrete Factories
 class TextPreprocessingFactory(PreprocessingFactory):
+    def __init__(self,mode="lowercase"):
+        self.mode=mode
     def create_cleaner(self):
         return TextCleaner()
     def create_normalizer(self):
-        return TextNormalizer()
+        return TextNormalizer(mode=self.mode)
     def create_feature_extractor(self):
         return TextFeatureExtractor()
     
 class ImagePreprocessingFactory(PreprocessingFactory):
+    def __init__(self,scale_range=(0,1)):
+        self.scale_range=scale_range
     def create_cleaner(self):
         return ImageCleaner()
     def create_normalizer(self):
-        return ImageNormalizer()
+        return ImageNormalizer(scale_range=self.scale_range)
     def create_feature_extractor(self):
         return ImageFeatureExtractor()
     
@@ -77,12 +90,3 @@ def client_code(factory: PreprocessingFactory,data):
     print(cleaner.clean(data))
     print(normalizer.normalize(data))
     print(extractor.extract(data))
-
-# Test with Text Data
-print(f"{'-'*7} Text Preprocessing {'-'*7}")
-client_code(TextPreprocessingFactory(),"This is a sample stopword text")
-
-
-# Test with Image Data
-print(f"{'-'*7} Image Preprocessing {'-'*7}")
-client_code(ImagePreprocessingFactory(),"sample_image.png")
