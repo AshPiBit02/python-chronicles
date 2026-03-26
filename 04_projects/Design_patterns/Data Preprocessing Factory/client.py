@@ -38,7 +38,7 @@ client_code(text_factory,"This is a sample stopword text")
 image_factory=ImagePreprocessingFactory(scale_range=(0,511))
 client_code(image_factory,"demo_image.jpeg")
 
-print(f"'-'*7 Text Pipleling'-'*7")
+print(f"{'-'*7} Text Pipleling {'-'*7}")
 run_pipeline(TextPreprocessingFactory(mode="uppercase"),"This is a sample stopword text")
 
 print(f"'-'*7 Image Pipleling'-'*7")
