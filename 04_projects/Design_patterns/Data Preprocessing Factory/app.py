@@ -12,24 +12,36 @@ class FeatureExtractor:
 # Concrete Products for Text
 class TextCleaner(Cleaner):
     def clean(self,data):
-        return f"Text cleaned: {data.lower().replace('stopword','')}"
+        result= f"Text cleaned: {data.lower().replace('stopword','')}"
+        print("[LOG]: TextCleaner applied stopword removal")
+        return result
 class TextNormalizer(Normalizer):
     def normalize(self, data):
-        return f"Text normalized: {data.lower()}"
+        result=f"Text normalized: {data.lower()}"
+        print("[LOG]: TextNormalizer applied text normalized")
+        return result
 class TextFeatureExtractor(FeatureExtractor):
     def extract(self, data):
-        return f"Text features extracted: word_count={len(data.split())}"
+        result=f"Text features extracted: word_count={len(data.split())}"
+        print("[LOG]: TextFeatueExtractor applied text feature extracted")
+        return result
 
 # Concrete Products for Image
 class ImageCleaner(Cleaner):
     def clean(self,data):
-        return f"Image cleaned: remove noise from {data}"
+        result=f"Image cleaned: remove noise from {data}"
+        print("[LOG]: ImageClearner removed noise")
+        return result
 class ImageNormalizer(Normalizer):
     def normalize(self, data):
-        return f"Image normalized: scaled pixels of {data}"
+        result= f"Image normalized: scaled pixels of {data}"
+        print("[LOG]: ImageNormalizer scaled pixels")
+        return result
 class ImageFeatureExtractor(FeatureExtractor):
     def extract(self, data):
-        return f"Image features extracted: histogram of {data}"
+        result= f"Image features extracted: histogram of {data}"
+        print("[LOG]: ImageFeatureExtractor extracted additional features")
+        return result
 
 # Abstract Factories
 class PreprocessingFactory:
