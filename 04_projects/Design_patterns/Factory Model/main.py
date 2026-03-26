@@ -6,7 +6,8 @@ def clientt_code(factory:ModelFactory,data,labels):
 
     predictions=model.train(data)
     results=evaluator.evaluate(predictions,labels)
-    visualizer.visualize(results)
+    final_result=visualizer.visualize(results)
+    print("[Pipeline Result]: ",final_result)
 Factory_map={"classification":lambda: ClassificationModelFactory(),
              "regression":lambda: RegressionModelFactory()
              }

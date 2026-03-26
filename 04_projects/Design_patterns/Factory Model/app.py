@@ -21,6 +21,7 @@ class ConfusionMatrixEvaluator(Evaluator):
 class ROCVisualizer(Visualizer):
     def visualize(self, results):
         print("[LOG]: Visualizing ROG Curve with results: ",results)
+        return {"NTH":2.3,"RCT":5.7}
 
 # Concrete Products for Regression
 class LinearRegressionModel(Model):
@@ -35,6 +36,7 @@ class RMSEEvaluatior(Evaluator):
 class ScatterPlotVisualizer(Visualizer):
     def visualize(self, results):
         print("[LOG] Visualizing Scatter Plot with results: ",results)
+        return {"TSC":7.0,"RNP":9.1}
 
 # Abstract Factory
 class ModelFactory:
