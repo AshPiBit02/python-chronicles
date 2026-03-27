@@ -1,0 +1,73 @@
+# Component
+class Coffee:
+    def cost(self):
+        raise NotImplementedError
+    def description(self):
+        raise NotImplementedError
+    
+# Concrete component
+class BasicCoffee(Coffee):
+    def __init__(self,size="small"):
+        self.size=size 
+
+    def cost(self):
+        if self.size=="small":
+            return 50
+        elif self.size=="medium":
+            return 70
+        elif self.size=="large":
+            return 90
+        else:
+            raise ValueError("Unknown size")
+    def description(self):
+        return f"{self.size.capitalize()} Coffee"
+       
+# Abstract Decorator
+class CoffeeDecorator(Coffee):
+    def __init__(self,coffee):
+        self.coffee=coffee
+    def cost(self):
+        return self.coffee.cost()
+    def description(self):
+        return self.coffee.description()
+
+class DiscountDecorator(CoffeeDecorator):
+    def __init__(self,coffee,discount_percent=0):
+        super().__init__(coffee)
+        self.discount_percent=discount_percent
+
+    def cost(self):
+        original_cost=super().cost()
+        discount_amount=original_cost*(self.discount_percent/100)
+        return original_cost - discount_amount
+    def description(self):
+        return super().description() + f" with {self.discount_percent}% discount"
+
+class TaxDecorator(CoffeeDecorator):
+    def __init__(self,coffee,vat_percent=13):
+        super().__init__(coffee)
+        self.vat_percent=vat_percent
+    def cost(self):
+        total_cost=super().cost()
+        vat_amount=total_cost*(self.vat_percent/100)
+        return total_cost + vat_amount
+    def description(self):
+        return super().description() + f" including {self.vat_percent}% vat"
+# Concrete Decorator
+class MilkDecorator(CoffeeDecorator):
+    def cost(self):
+        return super().cost() + 25
+    def description(self):
+        return super().description() + " Milk"
+    
+class SugarDecorator(CoffeeDecorator):
+    def cost(self):
+        return super().cost() + 10
+    def description(self):
+        return super().description() + " Sugar"
+class ChocolateDecorator(CoffeeDecorator):
+    def cost(self):
+        return super().cost()+ 50
+    def description(self):
+        return super().description() + " Chocolate"
+    
