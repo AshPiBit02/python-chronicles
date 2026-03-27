@@ -71,3 +71,15 @@ class ChocolateDecorator(CoffeeDecorator):
     def description(self):
         return super().description() + " Chocolate"
     
+
+def build_coffee(size,choices):
+    coffee=BasicCoffee(size=size)
+    for choice in choices:
+        if choice=="milk":
+            coffee=MilkDecorator(coffee)
+        elif choice=="sugar":
+            coffee=SugarDecorator(coffee)
+        elif choice=="chocolate":
+            coffee=ChocolateDecorator(coffee)
+    return coffee
+    
