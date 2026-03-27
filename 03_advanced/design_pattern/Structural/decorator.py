@@ -52,3 +52,42 @@ class SMSDecorator(NotifierDecorator):
 # Client Usage
 notifier=EmailDecorator(SMSDecorator(BasicNotifier()))
 notifier.send("Order #547 confirmend!")
+
+# Example 2 (File Reader with Logging & Encryption)
+
+# Component
+class FileReader:
+    def read(self,filename):
+        raise NotImplementedError
+    
+# Concreate Component
+class BasicFileReader(FileReader):
+    def read(self,filename):
+        print(f"Reading file: {filename}")
+        return "file content"
+    
+# Abstract Decorator
+class FileReaderDecorator(FileReader):
+    def __init__(self,reader):
+        self.reader=reader
+    def read(self,filename):
+        return self.reader.read(filename)
+    
+# Contrete Decorators
+class LogingDecorator(FileReaderDecorator):
+    def read(self,filename):
+        print("[LOG]: About to read file")
+        content=super().read(filename)
+        print("[LOG]: Finished reading file")
+        return content
+
+class EncryptionDecorator(FileReaderDecorator):
+    def read(self,filename):
+        content=super().read(filename)
+        print("[ENCRYPTION] Decrypting content...")
+        return f"decrypted({content})"
+    
+# Client Usage
+reader=EncryptionDecorator(LogingDecorator(BasicFileReader()))
+data=reader.read("train_odc.txt")
+print("Final content: ")
