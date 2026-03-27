@@ -18,3 +18,37 @@ Decorator Structural Pattern
     Concrete Decorators -> add specifif behaviors(e.g. EmailDecorator, SMSDecorator.)
 
 """
+
+# Example Code
+
+# Component
+class Notifier:
+    def send(self,message):
+        raise NotImplementedError
+    
+# Concrete component
+class BasicNotifier(Notifier):
+    def send(self,message):
+        print("Basic Notification: ",message)
+    
+# Decorator
+class NotifierDecorator(Notifier):
+    def __init__(self,notifier):
+        self.notifier=notifier
+    def send(self,message):
+        self.notifier.send(message)
+
+# Concrete Decorators
+class EmailDecorator(NotifierDecorator):
+    def send(self,message):
+        super().send(message)
+        print("Also sending EMAIL: ",message)
+
+class SMSDecorator(NotifierDecorator):
+    def send(self,message):
+        super().send(message)
+        print("Also Sending SMS: ",message)
+
+# Client Usage
+notifier=EmailDecorator(SMSDecorator(BasicNotifier()))
+notifier.send("Order #547 confirmend!")
