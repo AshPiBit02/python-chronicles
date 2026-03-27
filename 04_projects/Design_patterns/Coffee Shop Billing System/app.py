@@ -7,11 +7,21 @@ class Coffee:
     
 # Concrete component
 class BasicCoffee(Coffee):
+    def __init__(self,size="small"):
+        self.size=size 
+
     def cost(self):
-        return 150
+        if self.size=="small":
+            return 50
+        elif self.size=="medium":
+            return 70
+        elif self.size=="large":
+            return 90
+        else:
+            raise ValueError("Unknown size")
     def description(self):
-        return "Coffee with"
-    
+        return f"{self.size.capitalize()} Coffee"
+       
 # Abstract Decorator
 class CoffeeDecorator(Coffee):
     def __init__(self,coffee):
@@ -20,7 +30,7 @@ class CoffeeDecorator(Coffee):
         return self.coffee.cost()
     def description(self):
         return self.coffee.description()
-    
+
 # Concrete Decorator
 class MilkDecorator(CoffeeDecorator):
     def cost(self):
