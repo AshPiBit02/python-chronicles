@@ -17,3 +17,13 @@ print("Order: ",coffee.description())
 print(f"Total cost: ${coffee.cost()}")
 
 
+
+print('*'*35)
+print("Order: ",total.description())
+print("Receipt: ")
+for item,price in after_vat.receipt():
+    print(f"{item}: {price}")
+print('-'*15)
+print(f"Total: ${after_vat.cost()}")
+
+

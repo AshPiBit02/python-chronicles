@@ -4,6 +4,8 @@ class Coffee:
         raise NotImplementedError
     def description(self):
         raise NotImplementedError
+    def receipt(self):
+        raise NotImplementedError
     
 # Concrete component
 class BasicCoffee(Coffee):
@@ -21,6 +23,15 @@ class BasicCoffee(Coffee):
             raise ValueError("Unknown size")
     def description(self):
         return f"{self.size.capitalize()} Coffee"
+    def receipt(self):
+        if self.size=="small":
+            return [("Coffee",50)]
+
+        elif self.size=="medium":
+            return [("Coffee",70)]
+
+        elif self.size=="large":
+            return [("Coffee",90)]
        
 # Abstract Decorator
 class CoffeeDecorator(Coffee):
@@ -30,6 +41,8 @@ class CoffeeDecorator(Coffee):
         return self.coffee.cost()
     def description(self):
         return self.coffee.description()
+    def receipt(self):
+        return self.coffee.receipt()
 
 class DiscountDecorator(CoffeeDecorator):
     def __init__(self,coffee,discount_percent=0):
@@ -42,6 +55,8 @@ class DiscountDecorator(CoffeeDecorator):
         return original_cost - discount_amount
     def description(self):
         return super().description() + f" with {self.discount_percent}% discount"
+    def receipt(self):
+        return super().receipt() + [("Discount",f"{self.discount_percent}%")]
 
 class TaxDecorator(CoffeeDecorator):
     def __init__(self,coffee,vat_percent=13):
@@ -53,23 +68,36 @@ class TaxDecorator(CoffeeDecorator):
         return total_cost + vat_amount
     def description(self):
         return super().description() + f" including {self.vat_percent}% vat"
+    def receipt(self):
+        return super().receipt() + [("VAT",f"{self.vat_percent}%")]
+class ReceptDecorator(CoffeeDecorator):
+    def description(self):
+        return f"Base coffee: {super().cost()}\n"
 # Concrete Decorator
 class MilkDecorator(CoffeeDecorator):
     def cost(self):
         return super().cost() + 25
     def description(self):
         return super().description() + " Milk"
+    def receipt(self):
+        return super().receipt() + [("Milk",20)]
     
 class SugarDecorator(CoffeeDecorator):
     def cost(self):
         return super().cost() + 10
     def description(self):
         return super().description() + " Sugar"
+    def receipt(self):
+        return super().receipt() + [("Sugar",10)]
+    def receipt(self):
+        return super().receipt() + [("Sugar",10)]
 class ChocolateDecorator(CoffeeDecorator):
     def cost(self):
-        return super().cost()+ 50
+        return super().cost() + 50
     def description(self):
         return super().description() + " Chocolate"
+    def receipt(self):
+        return super().receipt() + [("Chocolate",50)]
     
 
 def build_coffee(size,choices):
