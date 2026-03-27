@@ -1,3 +1,4 @@
 from app import BasicCoffee,ChocolateDecorator,MilkDecorator,SugarDecorator
-coffee=ChocolateDecorator(BasicCoffee())
-print("Coffee Cost: $",coffee.cost())
+coffee=SugarDecorator(MilkDecorator(ChocolateDecorator(BasicCoffee())))
+# print("Coffee Cost: $",coffee.description())
+print(f"Order: {coffee.description()} \n Cost: ${coffee.cost()}")
