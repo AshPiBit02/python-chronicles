@@ -43,6 +43,16 @@ class DiscountDecorator(CoffeeDecorator):
     def description(self):
         return super().description() + f" with {self.discount_percent}% discount"
 
+class TaxDecorator(CoffeeDecorator):
+    def __init__(self,coffee,vat_percent=13):
+        super().__init__(coffee)
+        self.vat_percent=vat_percent
+    def cost(self):
+        total_cost=super().cost()
+        vat_amount=total_cost*(self.vat_percent/100)
+        return total_cost + vat_amount
+    def description(self):
+        return super().description() + f" including {self.vat_percent}% vat"
 # Concrete Decorator
 class MilkDecorator(CoffeeDecorator):
     def cost(self):

@@ -1,4 +1,15 @@
-from app import BasicCoffee,ChocolateDecorator,MilkDecorator,SugarDecorator,DiscountDecorator
-coffee=DiscountDecorator(MilkDecorator(ChocolateDecorator(BasicCoffee(size="medium"))),discount_percent=20)
+from app import BasicCoffee,ChocolateDecorator,MilkDecorator,SugarDecorator,DiscountDecorator,TaxDecorator
+# coffee=TaxDecorator(DiscountDecorator(MilkDecorator(ChocolateDecorator(BasicCoffee(size="medium"))),discount_percent=20),vat_percent=13)
+total=ChocolateDecorator(MilkDecorator(SugarDecorator(BasicCoffee(size="large"))))
+after_discount=DiscountDecorator(total,discount_percent=43)
+after_vat=TaxDecorator(after_discount)
 # print("Coffee Cost: $",coffee.description())
-print(f"Order: {coffee.description()} \nTotal cost: ${coffee.cost()}")
+print("Order: ",total.description())
+print(f"Total cost: ${total.cost()}")
+print("Order: ",after_discount.description())
+print(f"Total cost: ${after_discount.cost()}")
+print("Order: ",after_vat.description())
+print(f"Total cost: ${after_vat.cost()}")
+
+
+
