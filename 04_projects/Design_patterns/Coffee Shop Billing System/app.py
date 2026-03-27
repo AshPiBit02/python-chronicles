@@ -31,6 +31,18 @@ class CoffeeDecorator(Coffee):
     def description(self):
         return self.coffee.description()
 
+class DiscountDecorator(CoffeeDecorator):
+    def __init__(self,coffee,discount_percent=0):
+        super().__init__(coffee)
+        self.discount_percent=discount_percent
+
+    def cost(self):
+        original_cost=super().cost()
+        discount_amount=original_cost*(self.discount_percent/100)
+        return original_cost - discount_amount
+    def description(self):
+        return super().description() + f" with {self.discount_percent}% discount"
+
 # Concrete Decorator
 class MilkDecorator(CoffeeDecorator):
     def cost(self):
