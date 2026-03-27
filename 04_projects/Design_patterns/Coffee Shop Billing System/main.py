@@ -1,4 +1,4 @@
-from app import BasicCoffee,ChocolateDecorator,MilkDecorator,SugarDecorator,DiscountDecorator,TaxDecorator
+from app import BasicCoffee,ChocolateDecorator,MilkDecorator,SugarDecorator,DiscountDecorator,TaxDecorator,build_coffee
 # coffee=TaxDecorator(DiscountDecorator(MilkDecorator(ChocolateDecorator(BasicCoffee(size="medium"))),discount_percent=20),vat_percent=13)
 total=ChocolateDecorator(MilkDecorator(SugarDecorator(BasicCoffee(size="large"))))
 after_discount=DiscountDecorator(total,discount_percent=43)
@@ -11,5 +11,19 @@ print(f"Total cost: ${after_discount.cost()}")
 print("Order: ",after_vat.description())
 print(f"Total cost: ${after_vat.cost()}")
 
+addition=["sugar","milk","chocolate"]
+coffee=build_coffee(size="large",choices=addition)
+print("Order: ",coffee.description())
+print(f"Total cost: ${coffee.cost()}")
+
+
+
+print('*'*35)
+print("Order: ",total.description())
+print("Receipt: ")
+for item,price in after_vat.receipt():
+    print(f"{item}: {price}")
+print('-'*15)
+print(f"Total: ${after_vat.cost()}")
 
 
