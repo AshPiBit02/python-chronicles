@@ -64,5 +64,4 @@ ww.amount=222
 print(ww.amount)
 print(ww.__dict__)
 # ww.amount=-2 -> raises error
-print(ww)
 

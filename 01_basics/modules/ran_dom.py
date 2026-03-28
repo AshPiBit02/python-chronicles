@@ -45,8 +45,3 @@ while(in_num!=num):
     count+=1
 print(f"Correct guess in {count} try")
 
-
-    
-
-
-
