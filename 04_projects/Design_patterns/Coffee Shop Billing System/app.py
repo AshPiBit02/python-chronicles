@@ -73,6 +73,19 @@ class TaxDecorator(CoffeeDecorator):
 class ReceptDecorator(CoffeeDecorator):
     def description(self):
         return f"Base coffee: {super().cost()}\n"
+    
+class LoyaltyDecorator(CoffeeDecorator):
+    def __init__(self,coffee,points_per_10=1):
+        super().__init__(coffee)
+        self.points_per_10=points_per_10
+
+    def cost(self):
+        return super().cost()
+    def description(self):
+        return super().description() + "+ Loyalty Points"
+    def loyalty_points(self):
+        total_cost=super().cost()
+        return (total_cost//10) * self.points_per_10
 # Concrete Decorator
 class MilkDecorator(CoffeeDecorator):
     def cost(self):
@@ -110,4 +123,5 @@ def build_coffee(size,choices):
         elif choice=="chocolate":
             coffee=ChocolateDecorator(coffee)
     return coffee
-    
+
+
