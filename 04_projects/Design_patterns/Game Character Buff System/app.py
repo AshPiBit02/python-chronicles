@@ -14,7 +14,7 @@ class BaseCharacter:
             "Speed":self.speed
         }
     
-    def take_damange(self,amount):
+    def take_damage(self,amount):
         self.health-=amount
         if self.health < 0:
             self.health =0
@@ -30,7 +30,7 @@ class CharacterDecorator(BaseCharacter):
     def stats(self):
         return self.character.stats()
     
-    def take_damange(self, amount):
+    def take_damage(self, amount):
         self.character.take_damage(amount)
 
     def is_alive(self):
@@ -67,15 +67,15 @@ def battle(char1,char2):
             attacker,defender=char1,char2
         else:
             attacker,defender=char2,char1
+        
+        # Attack
+        damage=attacker.stats()["Attack"]
+        defender.take_damage(damage)
+        print(f"{attacker.stats()["Name"]} attacks {defender.stats()["Name"]} for {damage} damage!")
     
-    # Attack
-    damage=attacker.start()["Attack"]
-    defender.take_damage(damage)
-    print(f"{attacker.stats()["Name"]} attacks {defender.starts()["Name"]} for {damage} damage!")
-
-    print(f"{defender.stats()["Name"]} health: {defender.stats()["Health"]}")
-    print('-'*35)
-    if not defender.is_alive():
-        print(f"{defender.stats()["Name"]} has been defeated!")
-        return
-    
+        print(f"{defender.stats()["Name"]} health: {defender.stats()["Health"]}")
+        print('-'*35)
+        if not defender.is_alive():
+            print(f"{defender.stats()["Name"]} has been defeated!")
+            break
+        
