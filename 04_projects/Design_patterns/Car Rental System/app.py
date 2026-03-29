@@ -2,12 +2,12 @@
 class CarRental:
     def __init__(self,car_model,base_price,duration=1):
         self.car_model=car_model
-        self.duration=duration
         self.base_price=base_price
+        self.duration=duration
     def cost(self):
         return self.base_price * self.duration
     def description(self):
-        return f"Car Mode: {self.car_model}\nRent Cost: {self.base_price}$\n Days: {self.duration}"
+        return f"Car Mode: {self.car_model}\nRent Cost: {self.base_price}$\nDays: {self.duration}"
     
 # Abstract Decorator
 class RentalDecorator(CarRental):
@@ -15,35 +15,35 @@ class RentalDecorator(CarRental):
         self.carRental=carRental
     def cost(self):
         return self.carRental.cost()
-    def cost(self):
+    def description(self):
         return self.carRental.description()
 
 # Concrete Decorators
-class GPS(CarRental):
+class GPS(RentalDecorator):
     def cost(self):
         return super().cost() + 500
     def description(self):
         return super().description() + "\nGPS Included"
     
-class Insurance(CarRental):
+class Insurance(RentalDecorator):
     def cost(self):
         return super().cost() + 1000
     def description(self):
         return super().description() + "\nInsurance Included"
     
-class ChildSeat(CarRental):
+class ChildSeat(RentalDecorator):
     def cost(self):
         return super().cost() + 300
     def description(self):
         return super().description() + "\nChild Seat Included"
 
-class ExtraMileage(CarRental):
+class ExtraMileage(RentalDecorator):
     def cost(self):
         return super().cost() + 700
     def description(self):
         return super().description() + "\nExtra Mileage Included"
-    
-    
+
+
 
     
 
