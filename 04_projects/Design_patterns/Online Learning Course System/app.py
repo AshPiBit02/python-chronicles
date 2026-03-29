@@ -7,7 +7,7 @@ class Course:
     def cost(self):
         return self.base_price
     def description(self):
-        return self.title
+        return f"Course Title: {self.title}"
     
 # Abstract Decorator
 class CourseDecorator(Course):
@@ -23,24 +23,24 @@ class Certificate(CourseDecorator):
     def cost(self):
         return super().cost() + 500
     def description(self):
-        return super().description() + "\n Including Certificate(+500$)"
+        return super().description() + f"\nIncluding Certificate(+500$)"
     
 class ExtraMaterails(CourseDecorator):
     def cost(self):
         return super().cost() + 300
     def description(self):
-        return super().description() + "\nIncluding Notes and Pre-recorded videos(+300$)"
+        return super().description() + f"\nIncluding Notes and Pre-recorded videos(+300$)"
     
 class Mentorship(CourseDecorator):
     def cost(self):
         return super().cost() + 1000
     def description(self):
-        return super().description() + "\nIncluding Mentorship(+1000$)"
+        return super().description() + f"\nIncluding Mentorship(+1000$)"
 
 class LifetimeAccess(CourseDecorator):
     def cost(self):
         return super().cost() + 700
     def description(self):
-        return super().description() + "Including Limetime Access(+700$)"
+        return super().description() + f"\nIncluding Limetime Access(+700$)"
     
     
