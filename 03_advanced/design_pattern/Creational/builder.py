@@ -1,0 +1,87 @@
+"""
+Builder Pattern
+ -> a creational design pattern that helps contruct complex objects step by step.
+ -> Instead of creating an object in one go iwth a huge contructor, the builder lets you assemble it gradually,
+    cotrolling the construction process and final representation.
+
+ Why it is Used:
+  -> Simplifies object creation when constructors have too many parameters
+  -> Improves readablity by breaking down contruction into steps.
+  -> Provides flexibility to create different representations of the same object.
+  -> Separates contruction logic from the object itself.
+  -> Supports immutablility by building objects in a controlled way.
+
+ Intent
+   -> Separate the construction of a complex object from its representation, allowing the same construction
+      process to create different representations.
+
+ Use Case:
+   -> A pratical example is in UI frameworks or document generation:
+      - Building a PDF report step by step(title, table of contents, charts, footer).
+      - Constructing a meal order in a food delivery app(burger, fries, drink, dessert).
+      - Creating a house object with optional parts(garage, graden, swimming pool).
+
+ Essentail Elements
+    Builder Interface
+     -> Defines the steps to build parts of the product.
+    Concrete Builder
+     -> Implement the steps to build specific representations.
+    Product
+     -> The final complex object being built.
+    Director
+     -> Controls the building process, deciding the order of steps.
+    Client
+     -> Requests the product through the builder.
+     
+"""
+# Example
+
+# Product 
+class Computer:
+    def __init__(self):
+        self.parts=[]
+    def add_part(self,part):
+        self.parts.append(part)
+    def show(self):
+        print("Computer parts: ",", ".join(self.parts))
+
+# Builder Interface
+class ComputerBuilder:
+    def build_cpu(self): pass
+    def build_gpu(self): pass
+    def build_ram(self): pass
+    def build_ssd(self): pass
+    def build_result(self): pass
+
+# Concrete Builder
+class GamingComputerBuilder(ComputerBuilder):
+    def __init__(self):
+        self.computer=Computer()
+
+    def build_cpu(self):
+        self.computer.add_part("Intel HX CPU")
+    def build_gpu(self):
+        self.computer.add_part("Nvidia 5000 Series GPU")
+    def build_ram(self):
+        self.computer.add_part("LPDDR5X RAM")
+    def build_ssd(self):
+        self.computer.add_part("Gen 4 SSD")
+    def get_result(self):
+        return self.computer
+
+# Director
+class Director:
+    def __init__(self,builder):
+        self.builder=builder
+    def construct(self):
+        self.builder.build_cpu()
+        self.builder.build_gpu()
+        self.builder.build_ram()
+        self.builder.build_ssd()
+        return self.builder.get_result()
+
+# Client usage 
+builder=GamingComputerBuilder()
+director=Director(builder)
+gaming_pc=director.construct()
+gaming_pc.show()
