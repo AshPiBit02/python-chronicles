@@ -40,7 +40,43 @@ Builder Pattern
 class Computer:
     def __init__(self):
         self.parts=[]
-    def add_parts(self,part):
+    def add_part(self,part):
         self.parts.append(part)
     def show(self):
-        print("Computer parts: ",",".join(self.parts)) # ",".join() -> after each part comman is append
+        print("Computer parts: ",", ".join(self.parts))
+
+# Builder Interface
+class ComputerBuilder:
+    def build_cpu(self): pass
+    def build_gpu(self): pass
+    def build_ram(self): pass
+    def build_ssd(self): pass
+    def build_result(self): pass
+
+# Concrete Builder
+class GamingComputerBuilder(ComputerBuilder):
+    def __init__(self):
+        self.computer=Computer()
+
+    def build_cpu(self):
+        self.computer.add_part("Intel HX CPU")
+    def build_gpu(self):
+        self.computer.add_part("Nvidia 5000 Series GPU")
+    def build_ram(self):
+        self.computer.add_part("LPDDR5X RAM")
+    def build_ssd(self):
+        self.computer.add_part("Gen 4 SSD")
+    def get_result(self):
+        return self.computer
+
+# Director
+class Director:
+    def __init__(self,builder):
+        self.builder=builder
+    def construct(self):
+        self.builder.build_cpu()
+        self.builder.build_gpu()
+        self.builder.build_ram()
+        self.builder.build_ssd()
+        return self.builder.get_result()
+
