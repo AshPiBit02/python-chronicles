@@ -80,3 +80,8 @@ class Director:
         self.builder.build_ssd()
         return self.builder.get_result()
 
+# Client usage 
+builder=GamingComputerBuilder()
+director=Director(builder)
+gaming_pc=director.construct()
+gaming_pc.show()
