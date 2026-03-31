@@ -34,3 +34,13 @@ Builder Pattern
      -> Requests the product through the builder.
      
 """
+# Example
+
+# Product 
+class Computer:
+    def __init__(self):
+        self.parts=[]
+    def add_parts(self,part):
+        self.parts.append(part)
+    def show(self):
+        print("Computer parts: ",",".join(self.parts)) # ",".join() -> after each part comman is append
