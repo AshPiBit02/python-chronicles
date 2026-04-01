@@ -35,8 +35,8 @@ class MonthlyReportBuilder(ReportBuilder):
     def calculate_saving(self):
         self.report.saving = self.report.income - self.report.expenses
     def apply_tax(self, rate):
-        self.report.tax=self.report.saving * rate
-        self.report.net_income = self.report.saving - self.report.tax
+        self.report.tax=self.report.income * (rate*0.01)
+        self.report.net_income = self.report.income - self.report.tax
     def get_result(self):
         return self.report
     
