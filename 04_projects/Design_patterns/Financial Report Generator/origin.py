@@ -9,11 +9,11 @@ class FinancialReport:
 
     def show(self):
         print('-'*7," Financial Report ",'-'*7)
-        print(f"Income: {self.income}")
-        print(f"Expenses: {self.expenses}")
-        print(f"saving: {self.saving}")
-        print(f"Tax: {self.tax}")
-        print(f"Net Income: {self.net_income}") 
+        print(f"Income: {self.income}$")
+        print(f"Expenses: {self.expenses}$")
+        print(f"saving: {self.saving}$")
+        print(f"Tax: {self.tax}$")
+        print(f"Net Income: {self.net_income}$") 
 
 # Builder Interface
 class ReportBuilder:
