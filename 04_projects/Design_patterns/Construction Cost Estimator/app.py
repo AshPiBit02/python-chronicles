@@ -44,3 +44,23 @@ class ResidentalBuilding(ConstructionBuilder):
         self.report.total_budget=subtotal + self.report.tax
     def get_result(self):
         return self.report()
+
+class CommercialBuilding(ConstructionBuilder):
+    def __init__(self):
+        self.report=ConstructionReport()
+    def set_area(self,area):
+        self.report.area=area 
+    def add_materials(self, cost_per_unit):
+        # Commercial projects often use premium materials
+        self.report.material_cost=self.report.area * cost_per_unit * 1.2
+    def add_labor(self, workers, wage, days):
+        # Higher labor cost due to skilled workers
+        self.report.labor_cost=workers * wage *days *1.5
+    def add_equipment(self, cost):
+        self.report.equipment_cost=cost *1.3 # heavy machinary
+    def apply_tax(self, rate):
+        subtotal=self.report.material_cost + self.report.labor_cost + self.report.equipment_cost
+        self.report.tax=subtotal * (rate/100)
+        self.report.total_budget=subtotal + self.report.tax
+    def get_result(self):
+        return self.report()
