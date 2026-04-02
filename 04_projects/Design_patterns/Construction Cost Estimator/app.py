@@ -43,7 +43,7 @@ class ResidentalBuilding(ConstructionBuilder):
         self.report.tax=subtotal * (rate/100)
         self.report.total_budget=subtotal + self.report.tax
     def get_result(self):
-        return self.report()
+        return self.report
 
 class CommercialBuilding(ConstructionBuilder):
     def __init__(self):
