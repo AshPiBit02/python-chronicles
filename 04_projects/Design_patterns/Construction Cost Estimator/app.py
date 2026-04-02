@@ -105,10 +105,10 @@ class RoadProjectBuilder(ConstructionBuilder):
 class Director:
     def __init__(self,builder: ConstructionBuilder):
         self.builder=builder
-    def construct(self,area,cost_per_unit,workers,wage,days,quipment_cost,tax_rate):
+    def construct(self,area,cost_per_unit,workers,wage,days,equipment_cost,tax_rate):
         self.builder.set_area(area)
         self.builder.add_equipment(cost_per_unit)
         self.builder.add_labor(workers,wage,days)
-        self.builder.add_equipment(quipment_cost)
+        self.builder.add_equipment(equipment_cost)
         self.builder.apply_tax(tax_rate)
         return self.builder.get_result()
