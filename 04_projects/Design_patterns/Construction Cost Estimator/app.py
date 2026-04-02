@@ -9,7 +9,8 @@ class ConstructionReport:
         self.total_budget=0
     
     def show(self):
-        print(f"{'-'*7} Construction Report {'-'*7}")
+        print("Construction Report")
+        print(f"{'-'*28}")
         print(f"Area: {self.area}sq meters")
         print(f"Materials: {self.material_cost}$")
         print(f"Labor: {self.labor_cost}$")
