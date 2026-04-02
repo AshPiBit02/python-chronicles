@@ -1,5 +1,5 @@
 # Product
-class ConstructorReport:
+class ConstructionReport:
     def __init__(self):
         self.area=0
         self.material_cost=0
@@ -16,3 +16,31 @@ class ConstructorReport:
         print(f"Equipment: {self.equipment_cost}$")
         print(f"Tax: {self.tax}$")
         print(f"Total Budget: {self.total_budget}$")
+
+# Builder Interface
+class ConstructionBuilder:
+    def set_area(self,area): pass
+    def add_materials(self,cost_per_unit): pass
+    def add_labor(self,workers,wage,days): pass
+    def add_equipment(self,cost): pass
+    def apply_tax(self,rate): pass
+    def get_result(self): pass
+
+# Concrete Builders
+class ResidentalBuilding(ConstructionBuilder):
+    def __init__(self):
+        self.report=ConstructionReport()
+    def set_area(self,area):
+        self.report.area=area
+    def add_materials(self, cost_per_unit):
+        self.report.material_cost=self.report.area * cost_per_unit
+    def add_labor(self, workers, wage, days):
+        self.report.labor_cost=workers * wage *days
+    def add_equipment(self, cost):
+        self.report.equipment_cost=cost
+    def apply_tax(self, rate):
+        subtotal=self.report.material_cost + self.report.labor_cost + self.report.equipment_cost
+        self.report.tax=subtotal * (rate/100)
+        self.report.total_budget=subtotal + self.report.tax
+    def get_result(self):
+        return self.report()
