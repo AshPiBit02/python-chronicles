@@ -30,14 +30,31 @@ class LoanBuilder:
 def calculate_emi(principle,annual_rate,years):
         R = annual_rate/12/100
         N = years*12
-
-
         emi=(principle* R * math.pow(1 + R,N))/(math.pow(1 + R, N)-1) #  emi formula
         total_payment=emi*N
         total_interest=total_payment - principle
         return emi,total_payment,total_interest
 
 # Concrete Builder
+class EMILoanBuilder(LoanBuilder):
+     def __init__(self):
+          self.report=LoanReport()
+     def set_principle(self, amount):
+          self.report.principle=amount
+     def set_interest_rate(self, rate):
+          self.report.annual_rate=rate
+     def set_duration(self, years):
+          self.report.duration_years=years
+     def calculate_emi(self):
+          emi,total_payment,total_interest=calculate_emi(self.report.principle,
+                                                              self.report.annual_rate,self.report.duration_years)
+          self.report.emi=emi
+          self.report.total_payment=total_payment
+          self.report.total_interest=total_interest
+     def get_result(self):
+          return self.report
+
+   
 
     
 # Director 
