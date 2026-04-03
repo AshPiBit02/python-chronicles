@@ -1,6 +1,6 @@
 # Product
 class CheckoutReport:
-    def __init__(self,items,discounts,shipping,payment,invoice):
+    def __init__(self):
         self.items=[]
         self.discounts=0
         self.shipping=0
@@ -87,7 +87,7 @@ class Director:
     def __init__(self,builder:CheckoutBuilder):
         self.builder=builder
     def construct(self,items: list,discount_percentage:float,shipping_cost:float,payment_amount:float,customer_name:str,gift_message:str=None):
-        self.builder.add_items()
+        self.builder.add_items(items)
         self.builder.apply_discount(discount_percentage)
         self.builder.add_shipping(shipping_cost)
         self.builder.process_payment(payment_amount)
