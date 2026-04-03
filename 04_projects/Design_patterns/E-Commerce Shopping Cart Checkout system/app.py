@@ -14,9 +14,9 @@ class CheckoutReport:
         print("Checkout Report")
         print(f"{'-'*35}")
         print("Items: ",','.join(self.items))
-        print(f"Discount: {self.discounts}$")
-        print(f"Shipping: {self.shipping}")
-        print(f"Payment: {self.payment}$")
+        print(f"Discount: {self.discounts:.2f}$")
+        print(f"Shipping: {self.shipping:.2f}$")
+        print(f"Payment: {self.payment:.2f}$")
         if self.gift_message:
             print(f"Gift Message: {self.gift_message}")
         if self.out_of_stock:
@@ -44,11 +44,13 @@ class StandardCheckoutBuilder(CheckoutBuilder):
                 self.report.out_of_stock.append(item)
     def apply_discount(self, discount_percentage: float):
         subtotal=sum([items_cost[item] for item in self.report.items if item in items_cost])
-        self.report.discounts=subtotal * discount_percentage
+        self.report.discounts=subtotal * (discount_percentage/100)
     def add_shipping(self, shipping_cost: float):
         self.report.shipping=shipping_cost
     def process_payment(self, payment_amount: float):
-        self.report.payment=payment_amount
+        subtotal=sum([items_cost[item] for item in self.report.items if item in items_cost])
+        total=subtotal - self.report.discounts + self.report.shipping
+        self.report.payment=total
     def generate_invoice(self, customer_name: str):
         self.report.invoice=f"Invoice for {customer_name}: {self.report.payment}$ paid."
     def get_result(self):
@@ -69,7 +71,9 @@ class ExpressCheckoutBuilder(CheckoutBuilder):
     def add_shipping(self, shipping_cost: float):
         self.report.shipping=shipping_cost
     def process_payment(self, payment_amount: float):
-        self.report.payment=payment_amount
+        subtotal=sum([items_cost[item] for item in self.report.items if item in items_cost])
+        total=subtotal - self.report.discounts + self.report.shipping
+        self.report.payment=total
     def generate_invoice(self, customer_name: str):
         self.report.invoice=f"Invoice for {customer_name}: {self.report.payment}$ paid."
     def get_result(self):
@@ -86,11 +90,13 @@ class GiftCheckoutBuilder(CheckoutBuilder):
                 self.report.out_of_stock.append(item)
     def apply_discount(self, discount_percentage: float):
         subtotal=sum([items_cost[item] for item in self.report.items if item in items_cost])
-        self.report.discounts=subtotal * discount_percentage
+        self.report.discounts=subtotal * (discount_percentage/100)
     def add_shipping(self, shipping_cost: float):
         self.report.shipping=shipping_cost
     def process_payment(self, payment_amount: float):
-        self.report.payment=payment_amount
+        subtotal=sum([items_cost[item] for item in self.report.items if item in items_cost])
+        total=subtotal - self.report.discounts + self.report.shipping
+        self.report.payment=total
     def generate_invoice(self, customer_name: str):
         self.report.invoice=f"Invoice for {customer_name}: {self.report.payment}$ paid."
     def add_gift_wrap(self,message:str):
