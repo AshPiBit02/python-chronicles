@@ -40,9 +40,9 @@ class StandardCheckoutBuilder(CheckoutBuilder):
     def add_shipping(self, shipping_cost: float):
         self.report.shipping=shipping_cost
     def process_payment(self, payment_amount: float):
-        self.report.payment_amount=payment_amount
+        self.report.payment=payment_amount
     def generate_invoice(self, customer_name: str):
-        self.report.invoice=f"Invoice fro {customer_name}: {self.report.payment} paid."
+        self.report.invoice=f"Invoice fro {customer_name}: {self.report.payment}$ paid."
     def get_result(self):
         return self.report
     
@@ -57,9 +57,9 @@ class ExpressCheckoutBuilder(CheckoutBuilder):
     def add_shipping(self, shipping_cost: float):
         self.report.shipping=shipping_cost
     def process_payment(self, payment_amount: float):
-        self.report.payment_amount=payment_amount
+        self.report.payment=payment_amount
     def generate_invoice(self, customer_name: str):
-        self.report.invoice=f"Invoice fro {customer_name}: {self.report.payment} paid."
+        self.report.invoice=f"Invoice fro {customer_name}: {self.report.payment}$ paid."
     def get_result(self):
         return self.report
 
@@ -74,9 +74,9 @@ class GiftCheckoutBuilder(CheckoutBuilder):
     def add_shipping(self, shipping_cost: float):
         self.report.shipping=shipping_cost
     def process_payment(self, payment_amount: float):
-        self.report.payment_amount=payment_amount
+        self.report.payment=payment_amount
     def generate_invoice(self, customer_name: str):
-        self.report.invoice=f"Invoice fro {customer_name}: {self.report.payment} paid."
+        self.report.invoice=f"Invoice fro {customer_name}: {self.report.payment}$ paid."
     def add_gift_wrap(self,message:str):
         self.report.gift_message=message
     def get_result(self):
