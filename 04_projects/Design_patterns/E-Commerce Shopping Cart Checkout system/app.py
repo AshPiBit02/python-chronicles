@@ -22,9 +22,63 @@ class CheckoutReport:
 # Builder Interface
 class CheckoutBuilder:
     def add_items(self,items: list): pass
-    def apply_discount(self,dicount_percentage:float): pass
+    def apply_discount(self,discount_percentage:float): pass
     def add_shipping(self,shipping_cost:float): pass
     def process_payment(self,payment_amount:float): pass
     def generate_invoice(self,customer_name:str): pass
     def get_result(self): pass
+
+# Concrete Builders
+class StandardCheckoutBuilder(CheckoutBuilder):
+    def __init__(self):
+        self.report=CheckoutReport()
+    def add_items(self, items:list):
+        self.report.items.extend(items)
+    def apply_discount(self, discount_percentage: float):
+        subtotal=sum([1000 for _ in self.report.items]) #asssume each item = 1000
+        self.report.discounts=subtotal * discount_percentage
+    def add_shipping(self, shipping_cost: float):
+        self.report.shipping=shipping_cost
+    def process_payment(self, payment_amount: float):
+        self.report.payment_amount=payment_amount
+    def generate_invoice(self, customer_name: str):
+        self.report.invoice=f"Invoice fro {customer_name}: {self.report.payment} paid."
+    def get_result(self):
+        return self.report
+    
+class ExpressCheckoutBuilder(CheckoutBuilder):
+    def __init__(self):
+        self.report=CheckoutReport()
+    def add_items(self, items:list):
+        self.report.items.extend(items)
+    def apply_discount(self, discount_percentage: float):
+        # Express checkout skips discount
+        self.report.discounts=0
+    def add_shipping(self, shipping_cost: float):
+        self.report.shipping=shipping_cost
+    def process_payment(self, payment_amount: float):
+        self.report.payment_amount=payment_amount
+    def generate_invoice(self, customer_name: str):
+        self.report.invoice=f"Invoice fro {customer_name}: {self.report.payment} paid."
+    def get_result(self):
+        return self.report
+
+class GiftCheckoutBuilder(CheckoutBuilder):
+    def __init__(self):
+        self.report=CheckoutReport()
+    def add_items(self, items:list):
+        self.report.items.extend(items)
+    def apply_discount(self, discount_percentage: float):
+        subtotal=sum([2000 for _ in self.report.items]) #asssume each item = 2000
+        self.report.discounts=subtotal * discount_percentage
+    def add_shipping(self, shipping_cost: float):
+        self.report.shipping=shipping_cost
+    def process_payment(self, payment_amount: float):
+        self.report.payment_amount=payment_amount
+    def generate_invoice(self, customer_name: str):
+        self.report.invoice=f"Invoice fro {customer_name}: {self.report.payment} paid."
+    def add_gift_wrap(self,message:str):
+        self.report.gift_message=message
+    def get_result(self):
+        return self.report
     
