@@ -82,3 +82,19 @@ class GiftCheckoutBuilder(CheckoutBuilder):
     def get_result(self):
         return self.report
     
+# Director class Director:
+class Director:
+    def __init__(self,builder:CheckoutBuilder):
+        self.builder=builder
+    def construct(self,items: list,discount_percentage:float,shipping_cost:float,payment_amount:float,customer_name:str,gift_message:str=None):
+        self.builder.add_items()
+        self.builder.apply_discount(discount_percentage)
+        self.builder.add_shipping(shipping_cost)
+        self.builder.process_payment(payment_amount)
+        self.builder.generate_invoice(customer_name)
+        if isinstance(self.builder,GiftCheckoutBuilder) and gift_message:
+            self.builder.add_gift_wrap(gift_message)
+        return self.builder.get_result()
+    
+        
+    
