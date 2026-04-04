@@ -36,3 +36,38 @@ Observer Design Pattern
     -The channel doesn't need to know who the subscribers are. It just broadcasts updates.
 
 """
+# Basic Automatic notifications example using code implementation
+
+# Subject
+class Subject:
+    def __init__(self):
+        self._observers=[]
+    def attach(self,oberver):
+        self._observers.append(oberver)
+    def detach(self,oberver):
+        self._observers.remove(oberver)
+    def notify(self,message):
+        for observer in self._observers:
+            observer.update(message)
+    
+# Observer Interface
+class Observer:
+    def update(self,message): pass
+
+# Concrete Observers
+class EmailSubscriber(Observer):
+    def update(self, message):
+        print(f"Email received: {message}")
+
+class SMSSubscriber(Observer):
+    def update(self, message):
+        print(f"SMS received: {message}")
+
+# Usage 
+sub=Subject()
+email=EmailSubscriber()
+sms=SMSSubscriber()
+
+sub.attach(email)
+sub.attach(sms)
+sub.notify("New Product Launched.")
