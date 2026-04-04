@@ -28,4 +28,11 @@ Observer Design Pattern
   5. Attach/Detach Methods -> Allow observers to subscrible/unsubscribe.
   6. Notify Method -> Send updates to all observers.
 
+  Example: Simple Analogy
+  Imagine a YouTube Channel:
+    -The channel is the subject.
+    -Subscribers are the observers.
+    -When the channel uploads a new video, all subscribers get notified automatically.
+    -The channel doesn't need to know who the subscribers are. It just broadcasts updates.
+
 """
