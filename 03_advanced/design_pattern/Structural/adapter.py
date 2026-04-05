@@ -26,3 +26,29 @@ Adapater Pattern
    4. Client -> The code that uses the Target interface.
  
 """
+
+# Basic Code Snippet
+
+# Adaptee(incompatible interface)
+class OldSystem:
+    def specific_request(self):
+        return "Data in old format"
+
+# Target Interface
+class NewSystemInterface:
+    def request(self):
+        pass
+
+# Adapter
+class Adapter(NewSystemInterface):
+    def __init__(self,old_system):
+        self.old_system=old_system
+    def request(self):
+        # Translate old interface to new
+        data = self.old_system.specific_request()
+        return f"Adapted: {data}"
+
+# Client
+old=OldSystem()
+adapter=Adapter(old)
+print(adapter.request())
