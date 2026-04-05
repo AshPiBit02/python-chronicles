@@ -43,4 +43,48 @@ class LifetimeAccess(CourseDecorator):
     def description(self):
         return super().description() + f"\nIncluding Limetime Access(+700$)"
     
+class Quizes_Assessments(CourseDecorator):
+    def cost(self):
+        return super().cost() + 200
+    def description(self):
+        return super().description() + f"\nQuizzes & Assessments(+200$)"
+    
+class Community_access(CourseDecorator):
+    def cost(self):
+        return super().cost() + 150
+    def description(self):
+        return super().description() + f"\nCommunity Access(+150$)"
+    
+class Downloadable_resources(CourseDecorator):
+    def cost(self):
+        return super().cost() + 100
+    def description(self):
+        return super().description() + f"\nIncluding Downloadable Resources(+100$)"
+    
+class One_on_One_Coaching(CourseDecorator):
+    def cost(self):
+        return super().cost() + 2000
+    def description(self):
+        return super().description() + f"\nIncluding One-on-One Coaching(+2000$)"
+    
+class Job_Assistance(CourseDecorator):
+    def cost(self):
+        return super().cost() + 12000
+    def description(self):
+        return super().description() + f"\nIncluding Job Assistance(+1200$)"
+    
+class Group_Projects(CourseDecorator):
+    def cost(self):
+        return super().cost() + 800
+    def description(self):
+        return super().description() + f"\nIncluding Capstone Project(+800$)"
+    
+class Multi_Language_subtitles(CourseDecorator):
+    def cost(self):
+        return super().cost() + 20
+    def description(self):
+        return super().description() + f"\nIncluding Multi-Language Subtitles"
+    
+
+    
     
