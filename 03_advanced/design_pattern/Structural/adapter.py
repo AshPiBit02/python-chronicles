@@ -45,7 +45,7 @@ class Adapter(NewSystemInterface):
         self.old_system=old_system
     def request(self):
         # Translate old interface to new
-        data = self.old_system.specific_request()
+        data = self.old_system.specifisc_request()
         return f"Adapted: {data}"
 
 # Client
