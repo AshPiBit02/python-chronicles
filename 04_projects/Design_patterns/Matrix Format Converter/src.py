@@ -23,5 +23,5 @@ class PandasAdapter(MatrixTarget):
 
     def get_matrix(self):
         # Convert DataFrame to nested list
-        return self.df_matrix.tolist()
+        return self.df_matrix.values.tolist()
     
