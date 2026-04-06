@@ -2,7 +2,7 @@ import numpy as np
 import pandas as pd
 class MathEngine:
     def determinant(self,matrix_target):
-        matrix=matrix_target.getmatrix()
+        matrix=matrix_target.get_matrix()
         # Convert to NumPy for calculation
         arr=np.array(matrix)
         return round(np.linalg.det(arr),2)
