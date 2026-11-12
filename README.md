@@ -1,60 +1,74 @@
-# 🐍 python-chronicles
+# Python Chronicles
 
-[![Python Version](https://img.shields.io/badge/python-3.12+-blue.svg)](https://www.python.org/)
-[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+A hands-on Python learning repository that progresses from core language fundamentals to object-oriented programming, design patterns, and practical mini-projects.
 
-> "The journey of a thousand imports begins with a single print('Hello World')."
+## Repository structure
 
-Welcome to my personal archive of Python mastery. This repository serves as a structured roadmap of my progress, ranging from foundational concepts to complex, production-ready applications.
+| Directory | Contents |
+| --- | --- |
+| [`01_basics`](01_basics) | Strings, containers, functions, modules, scope, file handling, exceptions, and small scripts such as a countdown timer. |
+| [`02_intermediate`](02_intermediate) | Object-oriented programming, class mechanics, inheritance, composition, descriptors, properties, magic methods, context managers, and modules. |
+| [`03_advanced`](03_advanced) | Design patterns including factory, builder, singleton, adapter, decorator, observer, and strategy patterns, plus advanced module examples. |
+| [`04_projects`](04_projects) | Applied exercises built with OOP and design patterns, including banking, inventory, billing, e-commerce, file compression, financial reporting, notifications, and more. |
 
----
+The repository also contains sample text, JSON, CSV, log, image, and PDF files used by file-handling and project exercises.
 
-## 🗺️ The Roadmap
+## Featured projects
 
-I have organized this chronicle into logical "Chapters" to track my evolution as a developer:
+Examples in `04_projects` include:
 
-### 📜 Chapter 1: The Foundations
-- [x] *Syntax & Types:* Strings, Integers, Floats, Booleans.
-- [x] *Control Flow:* Loops (for, while) and Conditional Logic.
-- [x] *Data Structures:* Lists, Dictionaries, Sets, and Tuples.
-- [x] *Functions:* Arguments, Scope, and Lambda expressions.
+- Coffee Shop Billing System
+- Car Rental System
+- E-Commerce Shopping Cart Checkout System
+- File Compression Tool
+- Financial Report Generator
+- Inventory System
+- Loan EMI Calculator
+- Notification System
+- Online Learning Course System
+- Stock Market Tracker
+- Wi-Fi Router Manager
 
-### 🧪 Chapter 2: Pythonic Mastery
-- [x] *List Comprehensions:* Writing concise, readable code.
-- [x] *Error Handling:* try/except blocks and custom exceptions.
-- [x] *File I/O:* Reading/writing JSON, CSV, and Text files.
-- [ ] *OOP:* Classes, Inheritance, and Encapsulation.
+## Getting started
 
-### ⚡ Chapter 3: Advanced Alchemy
-- [ ] *Decorators & Generators:* Understanding the "Magic" of Python.
-- [ ] *Context Managers:* Managing resources with the with statement.
-- [ ] *Concurrency:* asyncio, Threading, and Multiprocessing.
-- [ ] *Testing:* Unit Testing with pytest.
+### Requirements
 
----
+- Python 3.12 or newer is recommended.
+- No third-party dependencies are required for the examples currently in the repository.
 
-## 🛠️ Project Showcases
-As I build larger tools, they will be highlighted here:
-
-| Project | Description | Tech Used |
-| :--- | :--- | :--- |
-| *Task-Manager* | A CLI tool for daily productivity. | SQLite, Argparse |
-| *Weather-Bot* | Fetches real-time data via API. | Requests, JSON |
-| *Data-Cleaner* | Automated script for CSV cleanup. | Pandas |
-
----
-
-## 📈 Current Progress
-- *Level:* Beginner / Intermediate
-- *Focusing on:* Object-Oriented Programming (OOP)
-- *Last Updated:* February 2026
-
----
-
-## ⚙️ How to Use This Repo
-If you're following along, you can clone this chronicle locally:
+### Clone the repository
 
 ```bash
-git clone [https://github.com/YOUR_USERNAME/python-chronicles.git](https://github.com/AshPiBitO2/python-chronicles.git)
+git clone https://github.com/AshPiBit02/python-chronicles.git
 cd python-chronicles
+```
+
+### Run an example
+
+Many scripts can be run directly from their own directory. For example:
+
+```bash
+python 01_basics/countdown.py
+python 03_advanced/design_pattern/Behavioral/observer.py
+```
+
+Some project scripts import files from the same project directory, so run them from that directory. For example:
+
+```bash
+cd "04_projects/Design_patterns/Coffee Shop Billing System"
+python main.py
+```
+
+## Learning goals
+
+This repository is intended for practicing and revisiting:
+
+- Python syntax and built-in data structures
+- Functions, modules, exceptions, and file I/O
+- Encapsulation, inheritance, composition, and polymorphism
+- Common object-oriented design patterns
+- Small, self-contained applications that combine these concepts
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
